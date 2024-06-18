@@ -1,0 +1,217 @@
+{
+  "0a": {
+    "range": {
+      "lower": 2
+    },
+    "payload": {
+      "lower": 5
+    }
+  },
+  "1a": {
+    "range": {
+      "lower": 20
+    },
+    "payload": {
+      "lower": 5
+    }
+  },
+  "1b": {
+    "range": {
+      "lower": 50
+    },
+    "payload": {
+      "lower": 5
+    }
+  },
+  "1c": {
+    "payload": {
+      "lower": 10
+    }
+  },
+  "1d": {
+    "payload": {
+      "lower": 20
+    }
+  },
+  "2a": {
+    "range": {
+      "lower": 15
+    },
+    "payload": {
+      "lower": 20
+    },
+    "velocity": {
+      "lower": 5
+    }
+  },
+  "2b": {
+    "range": {
+      "lower": 20
+    },
+    "velocity": {
+      "lower": 5
+    },
+    "payload": {
+      "lower": 15
+    }
+  },
+  "2c": {
+    "range": {
+      "lower": 30
+    },
+    "velocity": {
+      "lower": 5
+    },
+    "payload": {
+      "lower": 10
+    }
+  },
+  "2d": {
+    "range": {
+      "lower": 40
+    },
+    "velocity": {
+      "lower": 5
+    },
+    "payload": {
+      "lower": 5
+    }
+  },
+  "3a": {
+    "range": {
+      "lower": 18
+    },
+    "cost": {
+      "upper": 5000
+    },
+    "payload": {
+      "lower": 25
+    }
+  },
+  "3b": {
+    "range": {
+      "lower": 35
+    },
+    "cost": {
+      "upper": 5000
+    },
+    "velocity": {
+      "lower": 8
+    },
+    "payload": {
+        "lower": 5
+    }
+  },
+  "3c": {
+    "range": {
+      "lower": 20
+    },
+    "cost": {
+      "upper": 5000
+    },
+    "velocity": {
+      "lower": 10
+    },
+    "payload": {
+      "lower": 5
+    }
+  },
+  "4a": {
+    "range": {
+      "lower": 18
+    },
+    "cost": {
+      "upper": 4000
+    },
+    "velocity": {
+      "lower": 10
+    },
+    "payload": {
+      "lower": 15
+    }
+  },
+  "4b": {
+    "range": {
+      "lower": 20
+    },
+    "cost": {
+      "upper": 4000
+    },
+    "velocity": {
+      "lower": 8
+    },
+    "payload": {
+      "lower": 8
+    }
+  },
+  "4c": {
+    "range": {
+      "lower": 30
+    },
+    "cost": {
+      "upper": 4000
+    },
+    "velocity": {
+      "lower": 6
+    },
+    "payload": {
+      "lower": 10
+    }
+  },
+  "4d": {
+    "range": {
+      "lower": 40
+    },
+    "cost": {
+      "upper": 4000
+    },
+    "velocity": {
+      "lower": 6
+    },
+    "payload": {
+      "lower": 5
+    }
+  },
+  "5a": {
+    "range": {
+      "lower": 18
+    },
+    "cost": {
+      "upper": 3500
+    },
+    "velocity": {
+      "lower": 8
+    },
+    "payload": {
+      "lower": 15
+    }
+  },
+  "5b": {
+    "range": {
+      "lower": 20
+    },
+    "cost": {
+      "upper": 3500
+    },
+    "velocity": {
+      "lower": 15
+    },
+    "payload": {
+      "lower": 10
+    }
+  },
+  "5c": {
+    "range": {
+      "lower": 30
+    },
+    "cost": {
+      "upper": 3500
+    },
+    "velocity": {
+      "lower": 6
+    },
+    "payload": {
+      "lower": 20
+    }
+  }
+}

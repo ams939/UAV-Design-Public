@@ -1,0 +1,457 @@
+{
+    "train": {
+        "n": 96028,
+        "range": {
+            "mean_squared_error": 2.876627470286361,
+            "mean_absolute_error": 0.20264352241759762
+        },
+        "cost": {
+            "mean_squared_error": 84052.37991059347,
+            "mean_absolute_error": 134.7135427937929
+        },
+        "velocity": {
+            "mean_squared_error": 833.3818291182758,
+            "mean_absolute_error": 3.9732399225562713
+        },
+        "result": {
+            "accuracy_score": 0.961000958053901
+        }
+    },
+    "val": {
+        "n": 24007,
+        "range": {
+            "mean_squared_error": 4.281432128773015,
+            "mean_absolute_error": 0.28751613959886846
+        },
+        "cost": {
+            "mean_squared_error": 185507.64271695033,
+            "mean_absolute_error": 242.07167981767037
+        },
+        "velocity": {
+            "mean_squared_error": 1533.1983147098197,
+            "mean_absolute_error": 7.40647481623656
+        },
+        "result": {
+            "accuracy_score": 0.953596867580289
+        }
+    },
+    "test": {
+        "n": 40012,
+        "range": {
+            "mean_squared_error": 4.715924483401586,
+            "mean_absolute_error": 0.3191565906244073
+        },
+        "cost": {
+            "mean_squared_error": 181869.1767503139,
+            "mean_absolute_error": 240.9990879811252
+        },
+        "velocity": {
+            "mean_squared_error": 1703.9840542151892,
+            "mean_absolute_error": 7.473086424974111
+        },
+        "result": {
+            "accuracy_score": 0.955038488453464
+        }
+    },
+    "stable": {
+        "train": {
+            "n": 5927,
+            "range": {
+                "mean_squared_error": 26.31036884043661,
+                "mean_absolute_error": 1.9039780456829367
+            },
+            "cost": {
+                "mean_squared_error": 28837.375612630316,
+                "mean_absolute_error": 108.62955287047093
+            },
+            "velocity": {
+                "mean_squared_error": 15.598132379621733,
+                "mean_absolute_error": 1.7256236920293193
+            },
+            "result": {
+                "accuracy_score": 0.9994938417411844
+            },
+            "n_stable": 5927
+        },
+        "val": {
+            "n": 1405,
+            "range": {
+                "mean_squared_error": 31.000989534475757,
+                "mean_absolute_error": 2.5208002661795645
+            },
+            "cost": {
+                "mean_squared_error": 50887.067446058245,
+                "mean_absolute_error": 132.67869599366102
+            },
+            "velocity": {
+                "mean_squared_error": 29.414090920199392,
+                "mean_absolute_error": 2.712224158697705
+            },
+            "result": {
+                "accuracy_score": 0.9701067615658363
+            },
+            "n_stable": 1405
+        },
+        "test": {
+            "n": 2404,
+            "range": {
+                "mean_squared_error": 40.093717490499266,
+                "mean_absolute_error": 2.8406253939412363
+            },
+            "cost": {
+                "mean_squared_error": 56780.84835705702,
+                "mean_absolute_error": 138.3194338374844
+            },
+            "velocity": {
+                "mean_squared_error": 31.317587288653986,
+                "mean_absolute_error": 2.6560465878932527
+            },
+            "result": {
+                "accuracy_score": 0.9779534109816972
+            },
+            "n_stable": 2404
+        }
+    }
+}{
+    "train": {
+        "n": 96028,
+        "range": {
+            "mean_squared_error": 5.060866705833789,
+            "mean_absolute_error": 0.2746724603725948
+        },
+        "cost": {
+            "mean_squared_error": 99564.32862794718,
+            "mean_absolute_error": 204.51845308342683
+        },
+        "velocity": {
+            "mean_squared_error": 940.8986178513402,
+            "mean_absolute_error": 4.6312603962616565
+        },
+        "result": {
+            "accuracy_score": 0.9575540467363686
+        }
+    },
+    "val": {
+        "n": 24007,
+        "range": {
+            "mean_squared_error": 7.024858888023802,
+            "mean_absolute_error": 0.36570070940549926
+        },
+        "cost": {
+            "mean_squared_error": 253717.52325244274,
+            "mean_absolute_error": 292.8785933936586
+        },
+        "velocity": {
+            "mean_squared_error": 1653.4348641232873,
+            "mean_absolute_error": 7.467855184851957
+        },
+        "result": {
+            "accuracy_score": 0.9507643603948849
+        }
+    },
+    "test": {
+        "n": 40012,
+        "range": {
+            "mean_squared_error": 7.287357741493556,
+            "mean_absolute_error": 0.3803631499916442
+        },
+        "cost": {
+            "mean_squared_error": 2672791.950645453,
+            "mean_absolute_error": 301.84526985654304
+        },
+        "velocity": {
+            "mean_squared_error": 1790.9530984582757,
+            "mean_absolute_error": 7.736946711346684
+        },
+        "result": {
+            "accuracy_score": 0.9495651304608618
+        }
+    },
+    "stable": {
+        "train": {
+            "n": 5822,
+            "range": {
+                "mean_squared_error": 59.909886019066164,
+                "mean_absolute_error": 2.901096232041633
+            },
+            "cost": {
+                "mean_squared_error": 47608.13626500071,
+                "mean_absolute_error": 142.91278501803504
+            },
+            "velocity": {
+                "mean_squared_error": 20.28296948106893,
+                "mean_absolute_error": 2.4261318578297475
+            },
+            "result": {
+                "accuracy_score": 0.9994847131569907
+            },
+            "n_stable": 5822
+        },
+        "val": {
+            "n": 1434,
+            "range": {
+                "mean_squared_error": 81.56020553823205,
+                "mean_absolute_error": 3.7476056632728705
+            },
+            "cost": {
+                "mean_squared_error": 84481.71597676713,
+                "mean_absolute_error": 162.5220261152153
+            },
+            "velocity": {
+                "mean_squared_error": 26.05561038116052,
+                "mean_absolute_error": 3.0118092316796425
+            },
+            "result": {
+                "accuracy_score": 0.9797768479776848
+            },
+            "n_stable": 1434
+        },
+        "test": {
+            "n": 2480,
+            "range": {
+                "mean_squared_error": 79.55168361649342,
+                "mean_absolute_error": 3.684553194051278
+            },
+            "cost": {
+                "mean_squared_error": 68330.56535886094,
+                "mean_absolute_error": 163.121239249937
+            },
+            "velocity": {
+                "mean_squared_error": 25.977442643249244,
+                "mean_absolute_error": 3.00509633806444
+            },
+            "result": {
+                "accuracy_score": 0.9770161290322581
+            },
+            "n_stable": 2480
+        }
+    }
+}{
+    "train": {
+        "n": 96028,
+        "range": {
+            "mean_squared_error": 3.8436584333954693,
+            "mean_absolute_error": 0.24457026154508035
+        },
+        "cost": {
+            "mean_squared_error": 72955.11782637429,
+            "mean_absolute_error": 168.60595145324638
+        },
+        "velocity": {
+            "mean_squared_error": 877.3224996123447,
+            "mean_absolute_error": 4.1137641429722365
+        },
+        "result": {
+            "accuracy_score": 0.9645624192943725
+        }
+    },
+    "val": {
+        "n": 24007,
+        "range": {
+            "mean_squared_error": 6.273288063651357,
+            "mean_absolute_error": 0.36546949960371533
+        },
+        "cost": {
+            "mean_squared_error": 4243007.750668944,
+            "mean_absolute_error": 275.75989339535084
+        },
+        "velocity": {
+            "mean_squared_error": 1905.4810058395278,
+            "mean_absolute_error": 7.958452512458487
+        },
+        "result": {
+            "accuracy_score": 0.95809555546299
+        }
+    },
+    "test": {
+        "n": 40012,
+        "range": {
+            "mean_squared_error": 5.310030627625007,
+            "mean_absolute_error": 0.32800230693976146
+        },
+        "cost": {
+            "mean_squared_error": 228921.64334678688,
+            "mean_absolute_error": 265.1490098014541
+        },
+        "velocity": {
+            "mean_squared_error": 1395.1952167336729,
+            "mean_absolute_error": 7.305488166768086
+        },
+        "result": {
+            "accuracy_score": 0.9575377386783965
+        }
+    },
+    "stable": {
+        "train": {
+            "n": 5903,
+            "range": {
+                "mean_squared_error": 31.05306394092036,
+                "mean_absolute_error": 2.0918295602144177
+            },
+            "cost": {
+                "mean_squared_error": 29823.422334892595,
+                "mean_absolute_error": 119.50041954302897
+            },
+            "velocity": {
+                "mean_squared_error": 10.289328212626433,
+                "mean_absolute_error": 1.5209288843482223
+            },
+            "result": {
+                "accuracy_score": 0.9988141622903608
+            },
+            "n_stable": 5903
+        },
+        "val": {
+            "n": 1455,
+            "range": {
+                "mean_squared_error": 48.31152511816706,
+                "mean_absolute_error": 3.0651969955893255
+            },
+            "cost": {
+                "mean_squared_error": 58465.06426124884,
+                "mean_absolute_error": 150.78351622905927
+            },
+            "velocity": {
+                "mean_squared_error": 25.95698024074833,
+                "mean_absolute_error": 2.47104970990997
+            },
+            "result": {
+                "accuracy_score": 0.9731958762886598
+            },
+            "n_stable": 1455
+        },
+        "test": {
+            "n": 2378,
+            "range": {
+                "mean_squared_error": 46.788184104133144,
+                "mean_absolute_error": 2.8118271911702815
+            },
+            "cost": {
+                "mean_squared_error": 133393.36691418017,
+                "mean_absolute_error": 144.19413738074275
+            },
+            "velocity": {
+                "mean_squared_error": 27.02478282044061,
+                "mean_absolute_error": 2.424574509902197
+            },
+            "result": {
+                "accuracy_score": 0.9743481917577796
+            },
+            "n_stable": 2378
+        }
+    }
+}{
+    "train": {
+        "n": 96028,
+        "range": {
+            "mean_squared_error": 3.3023313055969057,
+            "mean_absolute_error": 0.21768178365842572
+        },
+        "cost": {
+            "mean_squared_error": 61700.91717699626,
+            "mean_absolute_error": 144.71845159968805
+        },
+        "velocity": {
+            "mean_squared_error": 943.5604959707141,
+            "mean_absolute_error": 4.143667857486156
+        },
+        "result": {
+            "accuracy_score": 0.9598242179364352
+        }
+    },
+    "val": {
+        "n": 24008,
+        "range": {
+            "mean_squared_error": 5.260054175059757,
+            "mean_absolute_error": 0.3260145950350176
+        },
+        "cost": {
+            "mean_squared_error": 250497.44967267668,
+            "mean_absolute_error": 255.41848304390072
+        },
+        "velocity": {
+            "mean_squared_error": 1403.9922886243266,
+            "mean_absolute_error": 6.887806186474232
+        },
+        "result": {
+            "accuracy_score": 0.9524741752749084
+        }
+    },
+    "test": {
+        "n": 40011,
+        "range": {
+            "mean_squared_error": 5.813202505039215,
+            "mean_absolute_error": 0.34009169236032316
+        },
+        "cost": {
+            "mean_squared_error": 208728.12186986703,
+            "mean_absolute_error": 253.52171697705006
+        },
+        "velocity": {
+            "mean_squared_error": 1342.5595394642178,
+            "mean_absolute_error": 7.154574312625914
+        },
+        "result": {
+            "accuracy_score": 0.9522381345130089
+        }
+    },
+    "stable": {
+        "train": {
+            "n": 5790,
+            "range": {
+                "mean_squared_error": 32.39660307437231,
+                "mean_absolute_error": 2.146474927194305
+            },
+            "cost": {
+                "mean_squared_error": 37606.766138344974,
+                "mean_absolute_error": 128.74555832726145
+            },
+            "velocity": {
+                "mean_squared_error": 11.242157306365092,
+                "mean_absolute_error": 1.6341975338924322
+            },
+            "result": {
+                "accuracy_score": 0.9994818652849741
+            },
+            "n_stable": 5790
+        },
+        "val": {
+            "n": 1472,
+            "range": {
+                "mean_squared_error": 46.84254742994705,
+                "mean_absolute_error": 2.9477447628640903
+            },
+            "cost": {
+                "mean_squared_error": 71438.18151341524,
+                "mean_absolute_error": 160.42882338814113
+            },
+            "velocity": {
+                "mean_squared_error": 22.42511999766312,
+                "mean_absolute_error": 2.532920996132104
+            },
+            "result": {
+                "accuracy_score": 0.9748641304347826
+            },
+            "n_stable": 1472
+        },
+        "test": {
+            "n": 2474,
+            "range": {
+                "mean_squared_error": 53.43335882109297,
+                "mean_absolute_error": 3.0549456295506214
+            },
+            "cost": {
+                "mean_squared_error": 68082.70114773382,
+                "mean_absolute_error": 147.9862104954022
+            },
+            "velocity": {
+                "mean_squared_error": 23.974939147071566,
+                "mean_absolute_error": 2.4406116949326586
+            },
+            "result": {
+                "accuracy_score": 0.9785772029102667
+            },
+            "n_stable": 2474
+        }
+    }
+}

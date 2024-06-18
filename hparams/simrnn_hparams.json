@@ -1,0 +1,86 @@
+{
+  "experiment_id": "",
+  "device": "gpu",
+  "experiment_type": "train",
+  "experiment_folder": "./experiments/SimRNN",
+  "model_class": "model.RNN.SimRNN",
+  "model_hparams": {
+    "rnn_hparams": {
+      "num_layers": 2,
+      "hidden_size": 128
+    },
+    "fc_hparams": {
+      "fc_hidden_sizes": [256, 128, 64]
+    },
+    "agg_seq_states": "True"
+
+  },
+  "dropout": 0.2,
+  "num_outcomes": 1,
+  "optimizer_class": "torch.optim.AdamW",
+  "optimizer_hparams": {
+    "lr": 0.0001
+  },
+  "scheduler_class": "torch.optim.lr_scheduler.MultiStepLR",
+  "scheduler_hparams": {
+    "milestones": [100, 200],
+    "gamma": 0.1
+  },
+  "dataloader_hparams": {
+    "batch_size": 64,
+    "shuffle": "True"
+  },
+  "dataset_class": "data.UAVDataset.UAVRegressionDataset",
+  "dataset_hparams": {
+    "datafile": "data/datafiles/preprocessed/test.csv",
+    "target_cols": ["range", "cost", "velocity", "result"],
+    "scale": "True",
+    "scaler_class": "sklearn.preprocessing.RobustScaler",
+    "one_hot": "True"
+  },
+  "val_proportion": 0.1,
+  "loss_class": "train.Loss.MSEBCELoss",
+  "loss_hparams": {
+  },
+  "loggers": [
+    {
+      "logger_class": "train.Logging.ConsoleLogger",
+      "logger_hparams": {
+        "mode": 1
+      }
+    },
+    {
+      "logger_class": "train.Logging.DatafileLogger",
+      "logger_hparams": {
+        "mode": 1
+      }
+    },
+      {
+      "logger_class": "train.Logging.FileLogger",
+      "logger_hparams": {
+        "mode": 1
+      }
+    }
+  ],
+  "stoppers": [
+    {
+      "stopper_class": "train.TrainStopper.EpochStopper",
+      "stopper_hparams": {
+        "stop_epoch": 1
+      }
+    },
+    {
+      "stopper_class": "train.TrainStopper.PlateauStopper",
+      "stopper_hparams": {
+        "patience": 25,
+        "start_epoch": 50
+      }
+    }
+  ],
+  "simulator_class": "inference.UAVSimulator.NNSimulator",
+  "simulator_hparams": {
+    "simulator_results_file": "sim_results.csv"
+  },
+  "postprocessor_class": "data.DataPostprocessor.UAVDataPostprocessor",
+  "save_preds": "True"
+}

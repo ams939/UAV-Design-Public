@@ -1,0 +1,62 @@
+{
+  "experiment_id": "",
+  "device": "gpu",
+  "experiment_type": "train",
+  "experiment_folder": "./experiments",
+  "model_class": "model.RNN.CharRNN",
+  "model_hparams": {
+    "num_layers": 2,
+    "hidden_size": 128
+  },
+  "optimizer_class": "torch.optim.Adam",
+  "optimizer_hparams": {
+    "lr": 0.002
+  },
+  "dataloader_class": "data.DataLoader.UAVSequenceLoader",
+  "dataloader_hparams": {
+    "batch_size": 64,
+    "shuffle": "True"
+  },
+  "dataset_class": "data.UAVDataset.UAVSequenceDataset",
+  "dataset_hparams": {
+    "seq_len": 128,
+    "datafile": "data/datafiles/preprocessed/preprocessed_validunique.csv"
+  },
+  "loss_class": "train.Loss.SCELoss",
+  "loss_hparams": {
+    "ignore_index": 0
+  },
+  "loggers": [
+    {
+      "logger_class": "train.Logging.ConsoleLogger",
+      "logger_hparams": {
+        "mode": 1
+      }
+    }, {
+      "logger_class": "train.Logging.DatafileLogger",
+      "logger_hparams": {
+        "mode": 1,
+        "file_path": "test.json"
+      }
+    }
+  ],
+  "stoppers": [
+    {
+      "stopper_class": "train.TrainStopper.EpochStopper",
+      "stopper_hparams": {
+        "stop_epoch": 1
+      }
+    },
+    {
+      "stopper_class": "train.TrainStopper.PlateauStopper",
+      "stopper_hparams": {
+        "threshold": 0.001,
+        "patience": 10
+      }
+    }
+    ],
+  "sampling_hparams": {
+    "seq_len": 128,
+    "batch_size": 16
+  }
+}

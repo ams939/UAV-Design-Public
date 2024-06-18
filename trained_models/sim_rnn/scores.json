@@ -1,0 +1,53 @@
+{
+    "train": {
+        "range": {
+            "mean_squared_error": 0.1800865004659735,
+            "mean_absolute_error": 0.07066934462771784
+        },
+        "cost": {
+            "mean_squared_error": 3179.4137027495226,
+            "mean_absolute_error": 24.064192819027813
+        },
+        "velocity": {
+            "mean_squared_error": 17.078340013373705,
+            "mean_absolute_error": 0.3262604881960239
+        },
+        "result": {
+            "accuracy_score": 0.9999028418751518
+        }
+    },
+    "val": {
+        "range": {
+            "mean_squared_error": 16.321520423976242,
+            "mean_absolute_error": 0.9518762677551666
+        },
+        "cost": {
+            "mean_squared_error": 9888.74041022246,
+            "mean_absolute_error": 59.713418940189676
+        },
+        "velocity": {
+            "mean_squared_error": 171.60803843525093,
+            "mean_absolute_error": 3.5909492983872715
+        },
+        "result": {
+            "accuracy_score": 0.9393821643675928
+        }
+    },
+    "test": {
+        "range": {
+            "mean_squared_error": 14.650199907471391,
+            "mean_absolute_error": 0.8762694616479243
+        },
+        "cost": {
+            "mean_squared_error": 16229.585522808806,
+            "mean_absolute_error": 59.22818890237593
+        },
+        "velocity": {
+            "mean_squared_error": 247.46711075911406,
+            "mean_absolute_error": 3.509410746561208
+        },
+        "result": {
+            "accuracy_score": 0.9445048966267682
+        }
+    }
+}

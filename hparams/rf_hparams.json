@@ -1,0 +1,45 @@
+{
+  "seed": 42,
+  "hparams_file": "rf_hparams.json",
+  "experiment_id": "",
+  "model_file": "",
+  "model_class": "model.SKLearnModel.SimRandomForest",
+  "device": "cpu",
+  "experiment_type": "train",
+  "experiment_folder": "./experiments/SimRF",
+  "num_outcomes": 1,
+  "dataloader_hparams": {
+    "batch_size": 256,
+    "shuffle": "True"
+  },
+  "dataset_class": "data.UAVDataset.UAVMatrixDataset",
+  "dataset_hparams": {
+    "datafile": "data/datafiles/preprocessed/design_database_test.csv",
+    "target_cols": ["range", "cost", "velocity", "result"],
+    "scale": "False",
+    "encoding_scheme": "matrix"
+  },
+  "n_folds": 0,
+  "n_workers": 4,
+  "loggers": [
+    {
+      "logger_class": "train.Logging.ConsoleLogger",
+      "logger_hparams": {
+        "mode": 1
+      }
+    },
+    {
+      "logger_class": "train.Logging.DatafileLogger",
+      "logger_hparams": {
+        "mode": 1
+      }
+    },
+      {
+      "logger_class": "train.Logging.FileLogger",
+      "logger_hparams": {
+        "mode": 1
+      }
+    }
+  ],
+  "postprocessor_class": "data.DataPostprocessor.UAVMatrixPostprocessor"
+}

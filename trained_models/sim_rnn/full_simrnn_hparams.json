@@ -1,0 +1,120 @@
+{
+    "hparam_file": "trained_models/sim_rnn/full_simrnn_hparams.json",
+    "experiment_id": "072622112955",
+    "device": "cuda",
+    "experiment_type": "train",
+    "experiment_folder": "./trained_models/sim_rnn",
+    "model_class": "model.RNN.FullSimRNN",
+    "model_hparams": {
+        "rnn_encoder_class": "model.RNN.UAVRNNEncoder",
+        "rnn_encoder_hparams": {
+            "num_layers": 1,
+            "hidden_size": 512,
+            "bidirectional": true
+        },
+        "agg_seq_states": true,
+        "fc_hparams": {
+            "hidden_sizes": [
+                2048,
+                1024,
+                512
+            ]
+        },
+        "reg_hparams": {
+            "hidden_sizes": [
+                256,
+                128,
+                64,
+                32,
+                16
+            ]
+        },
+        "clf_hparams": {
+            "hidden_sizes": [
+                256,
+                64,
+                32,
+                8
+            ]
+        },
+        "use_embed": true,
+        "embedding_size": 32
+    },
+    "dropout": 0.0,
+    "num_outcomes": 1,
+    "optimizer_class": "torch.optim.adamw.AdamW",
+    "optimizer_hparams": {
+        "lr": 0.001
+    },
+    "scheduler_class": "torch.optim.lr_scheduler.MultiStepLR",
+    "scheduler_hparams": {
+        "milestones": [
+            5
+        ],
+        "gamma": 0.1
+    },
+    "dataloader_hparams": {
+        "batch_size": 256,
+        "shuffle": true
+    },
+    "dataset_class": "data.UAVDataset.UAVRegressionDataset",
+    "dataset_hparams": {
+        "datafile": "data/datafiles/preprocessed/filtered_aggregated_uav_designs.csv",
+        "target_cols": [
+            "range",
+            "cost",
+            "velocity",
+            "result"
+        ],
+        "scale": true,
+        "scaler_class": "sklearn.preprocessing._data.RobustScaler",
+        "one_hot": false,
+        "scaler_hparams": {
+            "center_": [
+                0.0,
+                4422.26318359375,
+                7.116775989532471
+            ],
+            "scale_": [
+                3.7936949729919434,
+                4101.35693359375,
+                14.269322395324707
+            ],
+            "n_features_in_": 3
+        }
+    },
+    "val_proportion": 0.2,
+    "test_proportion": 0.2,
+    "loss_class": "train.Loss.MAEBCELoss",
+    "loss_hparams": {},
+    "loggers": [
+        {
+            "logger_class": "train.Logging.ConsoleLogger",
+            "logger_hparams": {
+                "mode": 1,
+                "file_path": "trained_models/sim_rnn"
+            }
+        }
+    ],
+    "stoppers": [
+        {
+            "stopper_class": "train.TrainStopper.EpochStopper",
+            "stopper_hparams": {
+                "stop_epoch": 2000
+            }
+        },
+        {
+            "stopper_class": "train.TrainStopper.PlateauStopper",
+            "stopper_hparams": {
+                "patience": 100,
+                "start_epoch": 1000
+            }
+        }
+    ],
+    "simulator_class": "inference.NNSimulator.NNSimulator",
+    "simulator_hparams": {
+        "simulator_results_file": "sim_results.csv"
+    },
+    "postprocessor_class": "data.DataPostprocessor.UAVDataPostprocessor",
+    "logger": "train.Logging.MultiLogger"
+}

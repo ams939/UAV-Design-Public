@@ -1,0 +1,127 @@
+{
+    "hparam_file": "hparams/nn_hparams.json",
+    "experiment_id": "082622163452",
+    "device": "cuda",
+    "experiment_type": "run_dqn",
+    "experiment_folder": "./trained_models/sim_nn",
+    "model_file": "model.pt",
+    "model_class": "model.NN.SimNN",
+    "feature_dim": 295,
+    "model_hparams": {
+        "fc_hparams": {
+            "hidden_sizes": [
+                1024,
+                2048,
+                1024
+            ]
+        },
+        "reg_hparams": {
+            "hidden_sizes": [
+                512,
+                512,
+                256,
+                128
+            ]
+        },
+        "clf_hparams": {
+            "hidden_sizes": [
+                512,
+                128,
+                64,
+                8
+            ]
+        }
+    },
+    "dropout": 0.0,
+    "num_outcomes": 1,
+    "optimizer_class": "torch.optim.adam.Adam",
+    "optimizer_hparams": {
+        "lr": 0.001
+    },
+    "scheduler_class": "torch.optim.lr_scheduler.MultiStepLR",
+    "scheduler_hparams": {
+        "milestones": [
+            5
+        ],
+        "gamma": 0.1
+    },
+    "dataloader_hparams": {
+        "batch_size": 256,
+        "shuffle": true
+    },
+    "dataset_class": "data.UAVDataset.UAVMatrixDataset",
+    "dataset_hparams": {
+        "datafile": "data/datafiles/preprocessed/design_database.csv",
+        "target_cols": [
+            "range",
+            "cost",
+            "velocity",
+            "result"
+        ],
+        "scale": true,
+        "scaler_class": "sklearn.preprocessing._data.RobustScaler",
+        "encoding_scheme": "matrix",
+        "scaler_hparams": {
+            "center_": [
+                0.0,
+                7670.696044921875,
+                12.201550006866455
+            ],
+            "scale_": [
+                1.0,
+                7283.57470703125,
+                22.32025635242462
+            ],
+            "n_features_in_": 3
+        }
+    },
+    "n_folds": 4,
+    "val_proportion": 0.1,
+    "test_proportion": 0.2,
+    "loss_class": "train.Loss.MAEBCELoss",
+    "loss_hparams": {},
+    "loggers": [
+        {
+            "logger_class": "train.Logging.ConsoleLogger",
+            "logger_hparams": {
+                "mode": 1,
+                "file_path": "./experiments/SimNN/082622163452"
+            }
+        },
+        {
+            "logger_class": "train.Logging.DatafileLogger",
+            "logger_hparams": {
+                "mode": 1,
+                "file_path": "./experiments/SimNN/082622163452"
+            }
+        },
+        {
+            "logger_class": "train.Logging.FileLogger",
+            "logger_hparams": {
+                "mode": 1,
+                "file_path": "./experiments/SimNN/082622163452"
+            }
+        }
+    ],
+    "stoppers": [
+        {
+            "stopper_class": "train.TrainStopper.EpochStopper",
+            "stopper_hparams": {
+                "stop_epoch": 1000
+            }
+        },
+        {
+            "stopper_class": "train.TrainStopper.PlateauStopper",
+            "stopper_hparams": {
+                "patience": 50,
+                "start_epoch": 1000
+            }
+        }
+    ],
+    "simulator_class": "inference.NNSimulator.NNSimulator",
+    "simulator_hparams": {
+        "simulator_results_file": "sim_results.csv"
+    },
+    "postprocessor_class": "data.DataPostprocessor.UAVMatrixPostprocessor",
+    "logger": "train.Logging.MultiLogger"
+}

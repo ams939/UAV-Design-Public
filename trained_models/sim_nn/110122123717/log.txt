@@ -1,0 +1,1711 @@
+12:37:17 main: Beginning experiment ID 110122123717 of type 'traineval'
+12:37:17 main: Beginning training experiment on device: cuda
+12:37:17 SimNN: WARNING: No existing model found, new model created.
+12:37:17 UAVMatrixDataset: Using encoding scheme 'matrix'
+12:37:28 main: Raw data loaded from design_database.csv (160052 records) 
+12:37:29 main: Splitting the dataset into a train and test set with 10% (16006 records) as the test set
+12:37:29 main: Splitting train dataset into a train and validation set with 20% (28810 records) as the validation set, 115236 records in the train set.
+12:37:33 Trainer: Training model using device cuda
+12:37:33 Trainer: Using Adam optimizer with LR=0.001
+12:37:33 Trainer: Using MultiStepLR learning rate scheduler with params milestones=[20, 100],gamma=0.1
+12:37:33 Trainer: Using WeightedMAEBCELoss loss function.
+12:37:33 EpochStopper: Initializing with stopping condition epoch > 5000
+12:37:33 PlateauStopper: Initializing with stopping condition: Loss does not decrease for 20 epochs
+12:37:34 Trainer: Pre-training train-set loss 619.508
+12:37:34 Trainer: Pre-training val-set loss 617.016
+12:37:34 Trainer: Training epoch 1 beginning
+12:37:37 Trainer: Training epoch 1 complete (3.190s). Train Loss: 429.62
+12:37:37 Trainer: Validation loss: 398.38
+12:37:37 EpochStopper: Stopper iterating
+12:37:37 Trainer: Training epoch 2 beginning
+12:37:40 Trainer: Training epoch 2 complete (3.180s). Train Loss: 387.09
+12:37:41 Trainer: Validation loss: 379.96
+12:37:41 EpochStopper: Stopper iterating
+12:37:41 Trainer: Training epoch 3 beginning
+12:37:44 Trainer: Training epoch 3 complete (3.203s). Train Loss: 375.67
+12:37:44 Trainer: Validation loss: 373.75
+12:37:44 EpochStopper: Stopper iterating
+12:37:44 Trainer: Training epoch 4 beginning
+12:37:47 Trainer: Training epoch 4 complete (3.166s). Train Loss: 368.32
+12:37:47 Trainer: Validation loss: 365.14
+12:37:47 EpochStopper: Stopper iterating
+12:37:47 Trainer: Training epoch 5 beginning
+12:37:51 Trainer: Training epoch 5 complete (3.250s). Train Loss: 362.57
+12:37:51 Trainer: Validation loss: 363.82
+12:37:51 EpochStopper: Stopper iterating
+12:37:51 Trainer: Training epoch 6 beginning
+12:37:54 Trainer: Training epoch 6 complete (3.149s). Train Loss: 358.53
+12:37:54 Trainer: Validation loss: 362.74
+12:37:54 EpochStopper: Stopper iterating
+12:37:54 Trainer: Training epoch 7 beginning
+12:37:58 Trainer: Training epoch 7 complete (3.259s). Train Loss: 355.57
+12:37:58 Trainer: Validation loss: 360.36
+12:37:58 EpochStopper: Stopper iterating
+12:37:58 Trainer: Training epoch 8 beginning
+12:38:01 Trainer: Training epoch 8 complete (3.201s). Train Loss: 346.85
+12:38:01 Trainer: Validation loss: 342.51
+12:38:01 EpochStopper: Stopper iterating
+12:38:01 Trainer: Training epoch 9 beginning
+12:38:04 Trainer: Training epoch 9 complete (3.249s). Train Loss: 293.89
+12:38:05 Trainer: Validation loss: 281.66
+12:38:05 EpochStopper: Stopper iterating
+12:38:05 Trainer: Training epoch 10 beginning
+12:38:08 Trainer: Training epoch 10 complete (3.263s). Train Loss: 265.60
+12:38:08 Trainer: Validation loss: 270.41
+12:38:08 EpochStopper: Stopper iterating
+12:38:08 Trainer: Training epoch 11 beginning
+12:38:11 Trainer: Training epoch 11 complete (3.208s). Train Loss: 257.26
+12:38:12 Trainer: Validation loss: 256.14
+12:38:12 EpochStopper: Stopper iterating
+12:38:12 Trainer: Training epoch 12 beginning
+12:38:15 Trainer: Training epoch 12 complete (3.195s). Train Loss: 246.72
+12:38:15 Trainer: Validation loss: 264.21
+12:38:15 EpochStopper: Stopper iterating
+12:38:15 Trainer: Training epoch 13 beginning
+12:38:18 Trainer: Training epoch 13 complete (3.189s). Train Loss: 239.92
+12:38:18 Trainer: Validation loss: 255.74
+12:38:18 EpochStopper: Stopper iterating
+12:38:18 Trainer: Training epoch 14 beginning
+12:38:22 Trainer: Training epoch 14 complete (3.322s). Train Loss: 234.27
+12:38:22 Trainer: Validation loss: 245.08
+12:38:22 EpochStopper: Stopper iterating
+12:38:22 Trainer: Training epoch 15 beginning
+12:38:25 Trainer: Training epoch 15 complete (3.237s). Train Loss: 229.18
+12:38:26 Trainer: Validation loss: 255.52
+12:38:26 EpochStopper: Stopper iterating
+12:38:26 Trainer: Training epoch 16 beginning
+12:38:29 Trainer: Training epoch 16 complete (3.245s). Train Loss: 226.72
+12:38:29 Trainer: Validation loss: 242.48
+12:38:29 EpochStopper: Stopper iterating
+12:38:29 Trainer: Training epoch 17 beginning
+12:38:32 Trainer: Training epoch 17 complete (3.277s). Train Loss: 224.34
+12:38:32 Trainer: Validation loss: 238.63
+12:38:32 EpochStopper: Stopper iterating
+12:38:32 Trainer: Training epoch 18 beginning
+12:38:36 Trainer: Training epoch 18 complete (3.404s). Train Loss: 219.22
+12:38:36 Trainer: Validation loss: 240.51
+12:38:36 EpochStopper: Stopper iterating
+12:38:36 Trainer: Training epoch 19 beginning
+12:38:39 Trainer: Training epoch 19 complete (3.224s). Train Loss: 218.57
+12:38:40 Trainer: Validation loss: 240.75
+12:38:40 EpochStopper: Stopper iterating
+12:38:40 Trainer: Training epoch 20 beginning
+12:38:43 Trainer: Learning rate updated from 0.001 to 0.0001
+12:38:43 Trainer: Training epoch 20 complete (3.217s). Train Loss: 215.11
+12:38:43 Trainer: Validation loss: 232.85
+12:38:43 EpochStopper: Stopper iterating
+12:38:43 Trainer: Training epoch 21 beginning
+12:38:46 Trainer: Training epoch 21 complete (3.296s). Train Loss: 193.19
+12:38:47 Trainer: Validation loss: 213.75
+12:38:47 EpochStopper: Stopper iterating
+12:38:47 Trainer: Training epoch 22 beginning
+12:38:50 Trainer: Training epoch 22 complete (3.243s). Train Loss: 183.64
+12:38:50 Trainer: Validation loss: 210.86
+12:38:50 EpochStopper: Stopper iterating
+12:38:50 Trainer: Training epoch 23 beginning
+12:38:53 Trainer: Training epoch 23 complete (3.253s). Train Loss: 180.03
+12:38:54 Trainer: Validation loss: 208.47
+12:38:54 EpochStopper: Stopper iterating
+12:38:54 Trainer: Training epoch 24 beginning
+12:38:57 Trainer: Training epoch 24 complete (3.191s). Train Loss: 177.37
+12:38:57 Trainer: Validation loss: 207.19
+12:38:57 EpochStopper: Stopper iterating
+12:38:57 Trainer: Training epoch 25 beginning
+12:39:00 Trainer: Training epoch 25 complete (3.221s). Train Loss: 175.50
+12:39:00 Trainer: Validation loss: 206.57
+12:39:00 EpochStopper: Stopper iterating
+12:39:00 Trainer: Training epoch 26 beginning
+12:39:04 Trainer: Training epoch 26 complete (3.176s). Train Loss: 173.49
+12:39:04 Trainer: Validation loss: 205.98
+12:39:04 EpochStopper: Stopper iterating
+12:39:04 Trainer: Training epoch 27 beginning
+12:39:07 Trainer: Training epoch 27 complete (3.206s). Train Loss: 171.85
+12:39:07 Trainer: Validation loss: 205.36
+12:39:07 EpochStopper: Stopper iterating
+12:39:07 Trainer: Training epoch 28 beginning
+12:39:10 Trainer: Training epoch 28 complete (3.212s). Train Loss: 170.14
+12:39:11 Trainer: Validation loss: 204.27
+12:39:11 EpochStopper: Stopper iterating
+12:39:11 Trainer: Training epoch 29 beginning
+12:39:14 Trainer: Training epoch 29 complete (3.301s). Train Loss: 169.03
+12:39:14 Trainer: Validation loss: 203.69
+12:39:14 EpochStopper: Stopper iterating
+12:39:14 Trainer: Training epoch 30 beginning
+12:39:17 Trainer: Training epoch 30 complete (3.144s). Train Loss: 167.62
+12:39:18 Trainer: Validation loss: 202.54
+12:39:18 EpochStopper: Stopper iterating
+12:39:18 Trainer: Training epoch 31 beginning
+12:39:21 Trainer: Training epoch 31 complete (3.233s). Train Loss: 166.40
+12:39:21 Trainer: Validation loss: 202.73
+12:39:21 EpochStopper: Stopper iterating
+12:39:21 Trainer: Training epoch 32 beginning
+12:39:24 Trainer: Training epoch 32 complete (3.136s). Train Loss: 165.33
+12:39:24 Trainer: Validation loss: 201.78
+12:39:24 EpochStopper: Stopper iterating
+12:39:24 Trainer: Training epoch 33 beginning
+12:39:28 Trainer: Training epoch 33 complete (3.208s). Train Loss: 164.02
+12:39:28 Trainer: Validation loss: 201.02
+12:39:28 EpochStopper: Stopper iterating
+12:39:28 Trainer: Training epoch 34 beginning
+12:39:31 Trainer: Training epoch 34 complete (3.234s). Train Loss: 162.98
+12:39:31 Trainer: Validation loss: 200.71
+12:39:31 EpochStopper: Stopper iterating
+12:39:31 Trainer: Training epoch 35 beginning
+12:39:35 Trainer: Training epoch 35 complete (3.228s). Train Loss: 161.89
+12:39:35 Trainer: Validation loss: 201.27
+12:39:35 EpochStopper: Stopper iterating
+12:39:35 Trainer: Training epoch 36 beginning
+12:39:38 Trainer: Training epoch 36 complete (3.201s). Train Loss: 160.76
+12:39:38 Trainer: Validation loss: 199.78
+12:39:38 EpochStopper: Stopper iterating
+12:39:38 Trainer: Training epoch 37 beginning
+12:39:41 Trainer: Training epoch 37 complete (3.196s). Train Loss: 159.98
+12:39:42 Trainer: Validation loss: 199.55
+12:39:42 EpochStopper: Stopper iterating
+12:39:42 Trainer: Training epoch 38 beginning
+12:39:45 Trainer: Training epoch 38 complete (3.265s). Train Loss: 158.73
+12:39:45 Trainer: Validation loss: 199.16
+12:39:45 EpochStopper: Stopper iterating
+12:39:45 Trainer: Training epoch 39 beginning
+12:39:48 Trainer: Training epoch 39 complete (3.214s). Train Loss: 157.98
+12:39:49 Trainer: Validation loss: 199.34
+12:39:49 EpochStopper: Stopper iterating
+12:39:49 Trainer: Training epoch 40 beginning
+12:39:52 Trainer: Training epoch 40 complete (3.255s). Train Loss: 157.03
+12:39:52 Trainer: Validation loss: 198.72
+12:39:52 EpochStopper: Stopper iterating
+12:39:52 Trainer: Training epoch 41 beginning
+12:39:55 Trainer: Training epoch 41 complete (3.304s). Train Loss: 155.91
+12:39:56 Trainer: Validation loss: 198.09
+12:39:56 EpochStopper: Stopper iterating
+12:39:56 Trainer: Training epoch 42 beginning
+12:39:59 Trainer: Training epoch 42 complete (3.208s). Train Loss: 155.08
+12:39:59 Trainer: Validation loss: 197.41
+12:39:59 EpochStopper: Stopper iterating
+12:39:59 Trainer: Training epoch 43 beginning
+12:40:02 Trainer: Training epoch 43 complete (3.155s). Train Loss: 154.48
+12:40:02 Trainer: Validation loss: 197.66
+12:40:02 EpochStopper: Stopper iterating
+12:40:02 Trainer: Training epoch 44 beginning
+12:40:06 Trainer: Training epoch 44 complete (3.201s). Train Loss: 153.47
+12:40:06 Trainer: Validation loss: 195.96
+12:40:06 EpochStopper: Stopper iterating
+12:40:06 Trainer: Training epoch 45 beginning
+12:40:09 Trainer: Training epoch 45 complete (3.206s). Train Loss: 152.51
+12:40:09 Trainer: Validation loss: 196.69
+12:40:09 EpochStopper: Stopper iterating
+12:40:09 Trainer: Training epoch 46 beginning
+12:40:13 Trainer: Training epoch 46 complete (3.260s). Train Loss: 151.68
+12:40:13 Trainer: Validation loss: 195.97
+12:40:13 EpochStopper: Stopper iterating
+12:40:13 Trainer: Training epoch 47 beginning
+12:40:16 Trainer: Training epoch 47 complete (3.264s). Train Loss: 150.87
+12:40:16 Trainer: Validation loss: 195.87
+12:40:16 EpochStopper: Stopper iterating
+12:40:16 Trainer: Training epoch 48 beginning
+12:40:20 Trainer: Training epoch 48 complete (3.269s). Train Loss: 149.90
+12:40:20 Trainer: Validation loss: 194.91
+12:40:20 EpochStopper: Stopper iterating
+12:40:20 Trainer: Training epoch 49 beginning
+12:40:23 Trainer: Training epoch 49 complete (3.269s). Train Loss: 148.98
+12:40:23 Trainer: Validation loss: 194.66
+12:40:23 EpochStopper: Stopper iterating
+12:40:23 Trainer: Training epoch 50 beginning
+12:40:27 Trainer: Training epoch 50 complete (3.302s). Train Loss: 148.13
+12:40:27 Trainer: Validation loss: 194.95
+12:40:27 EpochStopper: Stopper iterating
+12:40:27 Trainer: Training epoch 51 beginning
+12:40:30 Trainer: Training epoch 51 complete (3.191s). Train Loss: 147.33
+12:40:30 Trainer: Validation loss: 194.39
+12:40:30 EpochStopper: Stopper iterating
+12:40:30 Trainer: Training epoch 52 beginning
+12:40:34 Trainer: Training epoch 52 complete (3.290s). Train Loss: 146.70
+12:40:34 Trainer: Validation loss: 195.01
+12:40:34 EpochStopper: Stopper iterating
+12:40:34 Trainer: Training epoch 53 beginning
+12:40:37 Trainer: Training epoch 53 complete (3.257s). Train Loss: 145.87
+12:40:37 Trainer: Validation loss: 193.25
+12:40:37 EpochStopper: Stopper iterating
+12:40:37 Trainer: Training epoch 54 beginning
+12:40:41 Trainer: Training epoch 54 complete (3.271s). Train Loss: 144.67
+12:40:41 Trainer: Validation loss: 192.99
+12:40:41 EpochStopper: Stopper iterating
+12:40:41 Trainer: Training epoch 55 beginning
+12:40:44 Trainer: Training epoch 55 complete (3.228s). Train Loss: 144.07
+12:40:44 Trainer: Validation loss: 191.86
+12:40:44 EpochStopper: Stopper iterating
+12:40:44 Trainer: Training epoch 56 beginning
+12:40:48 Trainer: Training epoch 56 complete (3.237s). Train Loss: 143.54
+12:40:48 Trainer: Validation loss: 192.77
+12:40:48 EpochStopper: Stopper iterating
+12:40:48 Trainer: Training epoch 57 beginning
+12:40:51 Trainer: Training epoch 57 complete (3.175s). Train Loss: 142.64
+12:40:51 Trainer: Validation loss: 191.96
+12:40:51 EpochStopper: Stopper iterating
+12:40:51 Trainer: Training epoch 58 beginning
+12:40:54 Trainer: Training epoch 58 complete (3.307s). Train Loss: 142.13
+12:40:55 Trainer: Validation loss: 193.27
+12:40:55 EpochStopper: Stopper iterating
+12:40:55 Trainer: Training epoch 59 beginning
+12:40:58 Trainer: Training epoch 59 complete (3.325s). Train Loss: 141.17
+12:40:58 Trainer: Validation loss: 191.53
+12:40:58 EpochStopper: Stopper iterating
+12:40:58 Trainer: Training epoch 60 beginning
+12:41:02 Trainer: Training epoch 60 complete (3.233s). Train Loss: 140.35
+12:41:02 Trainer: Validation loss: 191.57
+12:41:02 EpochStopper: Stopper iterating
+12:41:02 Trainer: Training epoch 61 beginning
+12:41:05 Trainer: Training epoch 61 complete (3.215s). Train Loss: 139.78
+12:41:05 Trainer: Validation loss: 191.44
+12:41:05 EpochStopper: Stopper iterating
+12:41:05 Trainer: Training epoch 62 beginning
+12:41:08 Trainer: Training epoch 62 complete (3.236s). Train Loss: 139.03
+12:41:09 Trainer: Validation loss: 188.76
+12:41:09 EpochStopper: Stopper iterating
+12:41:09 Trainer: Training epoch 63 beginning
+12:41:12 Trainer: Training epoch 63 complete (3.240s). Train Loss: 137.99
+12:41:12 Trainer: Validation loss: 191.27
+12:41:12 EpochStopper: Stopper iterating
+12:41:12 Trainer: Training epoch 64 beginning
+12:41:15 Trainer: Training epoch 64 complete (3.239s). Train Loss: 137.40
+12:41:16 Trainer: Validation loss: 189.25
+12:41:16 EpochStopper: Stopper iterating
+12:41:16 Trainer: Training epoch 65 beginning
+12:41:19 Trainer: Training epoch 65 complete (3.167s). Train Loss: 137.07
+12:41:19 Trainer: Validation loss: 189.45
+12:41:19 EpochStopper: Stopper iterating
+12:41:19 Trainer: Training epoch 66 beginning
+12:41:22 Trainer: Training epoch 66 complete (3.231s). Train Loss: 136.55
+12:41:22 Trainer: Validation loss: 188.35
+12:41:22 EpochStopper: Stopper iterating
+12:41:22 Trainer: Training epoch 67 beginning
+12:41:26 Trainer: Training epoch 67 complete (3.224s). Train Loss: 135.93
+12:41:26 Trainer: Validation loss: 190.74
+12:41:26 EpochStopper: Stopper iterating
+12:41:26 Trainer: Training epoch 68 beginning
+12:41:29 Trainer: Training epoch 68 complete (3.293s). Train Loss: 134.95
+12:41:29 Trainer: Validation loss: 189.47
+12:41:29 EpochStopper: Stopper iterating
+12:41:29 Trainer: Training epoch 69 beginning
+12:41:33 Trainer: Training epoch 69 complete (3.206s). Train Loss: 134.51
+12:41:33 Trainer: Validation loss: 188.58
+12:41:33 EpochStopper: Stopper iterating
+12:41:33 Trainer: Training epoch 70 beginning
+12:41:36 Trainer: Training epoch 70 complete (3.293s). Train Loss: 133.86
+12:41:36 Trainer: Validation loss: 186.82
+12:41:36 EpochStopper: Stopper iterating
+12:41:36 Trainer: Training epoch 71 beginning
+12:41:40 Trainer: Training epoch 71 complete (3.290s). Train Loss: 133.84
+12:41:40 Trainer: Validation loss: 187.53
+12:41:40 EpochStopper: Stopper iterating
+12:41:40 Trainer: Training epoch 72 beginning
+12:41:43 Trainer: Training epoch 72 complete (3.250s). Train Loss: 132.67
+12:41:43 Trainer: Validation loss: 187.18
+12:41:43 EpochStopper: Stopper iterating
+12:41:43 Trainer: Training epoch 73 beginning
+12:41:47 Trainer: Training epoch 73 complete (3.228s). Train Loss: 132.22
+12:41:47 Trainer: Validation loss: 186.52
+12:41:47 EpochStopper: Stopper iterating
+12:41:47 Trainer: Training epoch 74 beginning
+12:41:50 Trainer: Training epoch 74 complete (3.264s). Train Loss: 131.56
+12:41:50 Trainer: Validation loss: 186.26
+12:41:50 EpochStopper: Stopper iterating
+12:41:50 Trainer: Training epoch 75 beginning
+12:41:54 Trainer: Training epoch 75 complete (3.221s). Train Loss: 131.11
+12:41:54 Trainer: Validation loss: 188.83
+12:41:54 EpochStopper: Stopper iterating
+12:41:54 Trainer: Training epoch 76 beginning
+12:41:57 Trainer: Training epoch 76 complete (3.225s). Train Loss: 131.14
+12:41:57 Trainer: Validation loss: 187.22
+12:41:57 EpochStopper: Stopper iterating
+12:41:57 Trainer: Training epoch 77 beginning
+12:42:01 Trainer: Training epoch 77 complete (3.285s). Train Loss: 130.46
+12:42:01 Trainer: Validation loss: 188.84
+12:42:01 EpochStopper: Stopper iterating
+12:42:01 Trainer: Training epoch 78 beginning
+12:42:04 Trainer: Training epoch 78 complete (3.270s). Train Loss: 129.85
+12:42:04 Trainer: Validation loss: 185.57
+12:42:04 EpochStopper: Stopper iterating
+12:42:04 Trainer: Training epoch 79 beginning
+12:42:08 Trainer: Training epoch 79 complete (3.276s). Train Loss: 129.21
+12:42:08 Trainer: Validation loss: 185.73
+12:42:08 EpochStopper: Stopper iterating
+12:42:08 Trainer: Training epoch 80 beginning
+12:42:11 Trainer: Training epoch 80 complete (3.242s). Train Loss: 128.48
+12:42:11 Trainer: Validation loss: 186.57
+12:42:11 EpochStopper: Stopper iterating
+12:42:11 Trainer: Training epoch 81 beginning
+12:42:15 Trainer: Training epoch 81 complete (3.262s). Train Loss: 127.96
+12:42:15 Trainer: Validation loss: 186.63
+12:42:15 EpochStopper: Stopper iterating
+12:42:15 Trainer: Training epoch 82 beginning
+12:42:18 Trainer: Training epoch 82 complete (3.224s). Train Loss: 127.75
+12:42:18 Trainer: Validation loss: 183.78
+12:42:18 EpochStopper: Stopper iterating
+12:42:18 Trainer: Training epoch 83 beginning
+12:42:22 Trainer: Training epoch 83 complete (3.270s). Train Loss: 126.90
+12:42:22 Trainer: Validation loss: 185.91
+12:42:22 EpochStopper: Stopper iterating
+12:42:22 Trainer: Training epoch 84 beginning
+12:42:25 Trainer: Training epoch 84 complete (3.238s). Train Loss: 127.02
+12:42:25 Trainer: Validation loss: 185.19
+12:42:25 EpochStopper: Stopper iterating
+12:42:25 Trainer: Training epoch 85 beginning
+12:42:28 Trainer: Training epoch 85 complete (3.227s). Train Loss: 125.90
+12:42:29 Trainer: Validation loss: 186.00
+12:42:29 EpochStopper: Stopper iterating
+12:42:29 Trainer: Training epoch 86 beginning
+12:42:32 Trainer: Training epoch 86 complete (3.285s). Train Loss: 125.45
+12:42:32 Trainer: Validation loss: 187.52
+12:42:32 EpochStopper: Stopper iterating
+12:42:32 Trainer: Training epoch 87 beginning
+12:42:36 Trainer: Training epoch 87 complete (3.299s). Train Loss: 125.45
+12:42:36 Trainer: Validation loss: 184.40
+12:42:36 EpochStopper: Stopper iterating
+12:42:36 Trainer: Training epoch 88 beginning
+12:42:39 Trainer: Training epoch 88 complete (3.157s). Train Loss: 124.42
+12:42:39 Trainer: Validation loss: 185.91
+12:42:39 EpochStopper: Stopper iterating
+12:42:39 Trainer: Training epoch 89 beginning
+12:42:42 Trainer: Training epoch 89 complete (3.341s). Train Loss: 124.01
+12:42:43 Trainer: Validation loss: 186.00
+12:42:43 EpochStopper: Stopper iterating
+12:42:43 Trainer: Training epoch 90 beginning
+12:42:46 Trainer: Training epoch 90 complete (3.181s). Train Loss: 123.68
+12:42:46 Trainer: Validation loss: 185.89
+12:42:46 EpochStopper: Stopper iterating
+12:42:46 Trainer: Training epoch 91 beginning
+12:42:49 Trainer: Training epoch 91 complete (3.244s). Train Loss: 122.69
+12:42:50 Trainer: Validation loss: 182.47
+12:42:50 EpochStopper: Stopper iterating
+12:42:50 Trainer: Training epoch 92 beginning
+12:42:53 Trainer: Training epoch 92 complete (3.326s). Train Loss: 122.89
+12:42:53 Trainer: Validation loss: 183.78
+12:42:53 EpochStopper: Stopper iterating
+12:42:53 Trainer: Training epoch 93 beginning
+12:42:56 Trainer: Training epoch 93 complete (3.292s). Train Loss: 121.83
+12:42:57 Trainer: Validation loss: 183.59
+12:42:57 EpochStopper: Stopper iterating
+12:42:57 Trainer: Training epoch 94 beginning
+12:43:00 Trainer: Training epoch 94 complete (3.213s). Train Loss: 121.54
+12:43:00 Trainer: Validation loss: 182.72
+12:43:00 EpochStopper: Stopper iterating
+12:43:00 Trainer: Training epoch 95 beginning
+12:43:03 Trainer: Training epoch 95 complete (3.316s). Train Loss: 121.27
+12:43:04 Trainer: Validation loss: 182.28
+12:43:04 EpochStopper: Stopper iterating
+12:43:04 Trainer: Training epoch 96 beginning
+12:43:07 Trainer: Training epoch 96 complete (3.201s). Train Loss: 120.47
+12:43:07 Trainer: Validation loss: 184.81
+12:43:07 EpochStopper: Stopper iterating
+12:43:07 Trainer: Training epoch 97 beginning
+12:43:10 Trainer: Training epoch 97 complete (3.232s). Train Loss: 120.44
+12:43:11 Trainer: Validation loss: 183.19
+12:43:11 EpochStopper: Stopper iterating
+12:43:11 Trainer: Training epoch 98 beginning
+12:43:14 Trainer: Training epoch 98 complete (3.267s). Train Loss: 119.84
+12:43:14 Trainer: Validation loss: 180.54
+12:43:14 EpochStopper: Stopper iterating
+12:43:14 Trainer: Training epoch 99 beginning
+12:43:17 Trainer: Training epoch 99 complete (3.263s). Train Loss: 118.70
+12:43:18 Trainer: Validation loss: 181.95
+12:43:18 EpochStopper: Stopper iterating
+12:43:18 Trainer: Training epoch 100 beginning
+12:43:21 Trainer: Learning rate updated from 0.0001 to 1e-05
+12:43:21 Trainer: Training epoch 100 complete (3.165s). Train Loss: 119.10
+12:43:21 Trainer: Validation loss: 181.99
+12:43:21 EpochStopper: Stopper iterating
+12:43:21 Trainer: Training epoch 101 beginning
+12:43:24 Trainer: Training epoch 101 complete (3.193s). Train Loss: 112.08
+12:43:24 Trainer: Validation loss: 177.70
+12:43:24 EpochStopper: Stopper iterating
+12:43:24 Trainer: Training epoch 102 beginning
+12:43:28 Trainer: Training epoch 102 complete (3.229s). Train Loss: 108.49
+12:43:28 Trainer: Validation loss: 177.84
+12:43:28 EpochStopper: Stopper iterating
+12:43:28 PlateauStopper: Loss plateauing (Patience=1/20).
+12:43:28 Trainer: Saving model checkpoint.
+12:43:28 SimNN: Model saved to ./experiments/SimNN/110122123717/checkpoint_model.pt
+12:43:28 Trainer: Training epoch 103 beginning
+12:43:31 Trainer: Training epoch 103 complete (3.350s). Train Loss: 107.20
+12:43:32 Trainer: Validation loss: 177.30
+12:43:32 EpochStopper: Stopper iterating
+12:43:32 Trainer: Training epoch 104 beginning
+12:43:35 Trainer: Training epoch 104 complete (3.210s). Train Loss: 106.42
+12:43:35 Trainer: Validation loss: 176.83
+12:43:35 EpochStopper: Stopper iterating
+12:43:35 Trainer: Training epoch 105 beginning
+12:43:38 Trainer: Training epoch 105 complete (3.229s). Train Loss: 105.95
+12:43:39 Trainer: Validation loss: 176.72
+12:43:39 EpochStopper: Stopper iterating
+12:43:39 Trainer: Training epoch 106 beginning
+12:43:42 Trainer: Training epoch 106 complete (3.228s). Train Loss: 105.45
+12:43:42 Trainer: Validation loss: 176.99
+12:43:42 EpochStopper: Stopper iterating
+12:43:42 PlateauStopper: Loss plateauing (Patience=1/20).
+12:43:42 Trainer: Saving model checkpoint.
+12:43:42 SimNN: Model saved to ./experiments/SimNN/110122123717/checkpoint_model.pt
+12:43:42 Trainer: Training epoch 107 beginning
+12:43:46 Trainer: Training epoch 107 complete (3.255s). Train Loss: 105.02
+12:43:46 Trainer: Validation loss: 176.51
+12:43:46 EpochStopper: Stopper iterating
+12:43:46 Trainer: Training epoch 108 beginning
+12:43:49 Trainer: Training epoch 108 complete (3.221s). Train Loss: 104.77
+12:43:49 Trainer: Validation loss: 176.69
+12:43:49 EpochStopper: Stopper iterating
+12:43:49 PlateauStopper: Loss plateauing (Patience=1/20).
+12:43:49 Trainer: Saving model checkpoint.
+12:43:50 SimNN: Model saved to ./experiments/SimNN/110122123717/checkpoint_model.pt
+12:43:50 Trainer: Training epoch 109 beginning
+12:43:53 Trainer: Training epoch 109 complete (3.232s). Train Loss: 104.48
+12:43:53 Trainer: Validation loss: 176.58
+12:43:53 EpochStopper: Stopper iterating
+12:43:53 PlateauStopper: Loss plateauing (Patience=2/20).
+12:43:53 Trainer: Training epoch 110 beginning
+12:43:56 Trainer: Training epoch 110 complete (3.294s). Train Loss: 104.29
+12:43:57 Trainer: Validation loss: 176.75
+12:43:57 EpochStopper: Stopper iterating
+12:43:57 PlateauStopper: Loss plateauing (Patience=3/20).
+12:43:57 Trainer: Training epoch 111 beginning
+12:44:00 Trainer: Training epoch 111 complete (3.215s). Train Loss: 104.01
+12:44:00 Trainer: Validation loss: 176.75
+12:44:00 EpochStopper: Stopper iterating
+12:44:00 PlateauStopper: Loss plateauing (Patience=4/20).
+12:44:00 Trainer: Training epoch 112 beginning
+12:44:03 Trainer: Training epoch 112 complete (3.307s). Train Loss: 103.71
+12:44:04 Trainer: Validation loss: 176.66
+12:44:04 EpochStopper: Stopper iterating
+12:44:04 PlateauStopper: Loss plateauing (Patience=5/20).
+12:44:04 Trainer: Training epoch 113 beginning
+12:44:07 Trainer: Training epoch 113 complete (3.224s). Train Loss: 103.53
+12:44:07 Trainer: Validation loss: 176.21
+12:44:07 EpochStopper: Stopper iterating
+12:44:07 Trainer: Training epoch 114 beginning
+12:44:10 Trainer: Training epoch 114 complete (3.164s). Train Loss: 103.40
+12:44:10 Trainer: Validation loss: 176.72
+12:44:10 EpochStopper: Stopper iterating
+12:44:10 PlateauStopper: Loss plateauing (Patience=1/20).
+12:44:10 Trainer: Saving model checkpoint.
+12:44:11 SimNN: Model saved to ./experiments/SimNN/110122123717/checkpoint_model.pt
+12:44:11 Trainer: Training epoch 115 beginning
+12:44:14 Trainer: Training epoch 115 complete (3.276s). Train Loss: 103.13
+12:44:14 Trainer: Validation loss: 176.89
+12:44:14 EpochStopper: Stopper iterating
+12:44:14 PlateauStopper: Loss plateauing (Patience=2/20).
+12:44:14 Trainer: Training epoch 116 beginning
+12:44:17 Trainer: Training epoch 116 complete (3.231s). Train Loss: 103.02
+12:44:18 Trainer: Validation loss: 176.22
+12:44:18 EpochStopper: Stopper iterating
+12:44:18 PlateauStopper: Loss plateauing (Patience=3/20).
+12:44:18 Trainer: Training epoch 117 beginning
+12:44:21 Trainer: Training epoch 117 complete (3.260s). Train Loss: 102.81
+12:44:21 Trainer: Validation loss: 176.44
+12:44:21 EpochStopper: Stopper iterating
+12:44:21 PlateauStopper: Loss plateauing (Patience=4/20).
+12:44:21 Trainer: Training epoch 118 beginning
+12:44:24 Trainer: Training epoch 118 complete (3.244s). Train Loss: 102.60
+12:44:25 Trainer: Validation loss: 176.89
+12:44:25 EpochStopper: Stopper iterating
+12:44:25 PlateauStopper: Loss plateauing (Patience=5/20).
+12:44:25 Trainer: Training epoch 119 beginning
+12:44:28 Trainer: Training epoch 119 complete (3.177s). Train Loss: 102.47
+12:44:28 Trainer: Validation loss: 176.91
+12:44:28 EpochStopper: Stopper iterating
+12:44:28 PlateauStopper: Loss plateauing (Patience=6/20).
+12:44:28 Trainer: Training epoch 120 beginning
+12:44:31 Trainer: Training epoch 120 complete (3.251s). Train Loss: 102.38
+12:44:32 Trainer: Validation loss: 176.41
+12:44:32 EpochStopper: Stopper iterating
+12:44:32 PlateauStopper: Loss plateauing (Patience=7/20).
+12:44:32 Trainer: Training epoch 121 beginning
+12:44:35 Trainer: Training epoch 121 complete (3.246s). Train Loss: 102.21
+12:44:35 Trainer: Validation loss: 176.46
+12:44:35 EpochStopper: Stopper iterating
+12:44:35 PlateauStopper: Loss plateauing (Patience=8/20).
+12:44:35 Trainer: Training epoch 122 beginning
+12:44:38 Trainer: Training epoch 122 complete (3.345s). Train Loss: 102.05
+12:44:39 Trainer: Validation loss: 176.24
+12:44:39 EpochStopper: Stopper iterating
+12:44:39 PlateauStopper: Loss plateauing (Patience=9/20).
+12:44:39 Trainer: Training epoch 123 beginning
+12:44:42 Trainer: Training epoch 123 complete (3.188s). Train Loss: 101.96
+12:44:42 Trainer: Validation loss: 176.88
+12:44:42 EpochStopper: Stopper iterating
+12:44:42 PlateauStopper: Loss plateauing (Patience=10/20).
+12:44:42 Trainer: Training epoch 124 beginning
+12:44:45 Trainer: Training epoch 124 complete (3.208s). Train Loss: 101.77
+12:44:45 Trainer: Validation loss: 176.50
+12:44:45 EpochStopper: Stopper iterating
+12:44:45 PlateauStopper: Loss plateauing (Patience=11/20).
+12:44:45 Trainer: Training epoch 125 beginning
+12:44:49 Trainer: Training epoch 125 complete (3.277s). Train Loss: 101.62
+12:44:49 Trainer: Validation loss: 176.02
+12:44:49 EpochStopper: Stopper iterating
+12:44:49 Trainer: Training epoch 126 beginning
+12:44:52 Trainer: Training epoch 126 complete (3.244s). Train Loss: 101.40
+12:44:52 Trainer: Validation loss: 176.45
+12:44:52 EpochStopper: Stopper iterating
+12:44:52 PlateauStopper: Loss plateauing (Patience=1/20).
+12:44:52 Trainer: Saving model checkpoint.
+12:44:53 SimNN: Model saved to ./experiments/SimNN/110122123717/checkpoint_model.pt
+12:44:53 Trainer: Training epoch 127 beginning
+12:44:56 Trainer: Training epoch 127 complete (3.232s). Train Loss: 101.41
+12:44:56 Trainer: Validation loss: 176.71
+12:44:56 EpochStopper: Stopper iterating
+12:44:56 PlateauStopper: Loss plateauing (Patience=2/20).
+12:44:56 Trainer: Training epoch 128 beginning
+12:44:59 Trainer: Training epoch 128 complete (3.245s). Train Loss: 101.29
+12:45:00 Trainer: Validation loss: 176.71
+12:45:00 EpochStopper: Stopper iterating
+12:45:00 PlateauStopper: Loss plateauing (Patience=3/20).
+12:45:00 Trainer: Training epoch 129 beginning
+12:45:03 Trainer: Training epoch 129 complete (3.362s). Train Loss: 101.12
+12:45:03 Trainer: Validation loss: 176.38
+12:45:03 EpochStopper: Stopper iterating
+12:45:03 PlateauStopper: Loss plateauing (Patience=4/20).
+12:45:03 Trainer: Training epoch 130 beginning
+12:45:06 Trainer: Training epoch 130 complete (3.220s). Train Loss: 100.93
+12:45:07 Trainer: Validation loss: 176.39
+12:45:07 EpochStopper: Stopper iterating
+12:45:07 PlateauStopper: Loss plateauing (Patience=5/20).
+12:45:07 Trainer: Training epoch 131 beginning
+12:45:10 Trainer: Training epoch 131 complete (3.193s). Train Loss: 100.92
+12:45:10 Trainer: Validation loss: 176.10
+12:45:10 EpochStopper: Stopper iterating
+12:45:10 PlateauStopper: Loss plateauing (Patience=6/20).
+12:45:10 Trainer: Training epoch 132 beginning
+12:45:13 Trainer: Training epoch 132 complete (3.228s). Train Loss: 100.70
+12:45:14 Trainer: Validation loss: 176.10
+12:45:14 EpochStopper: Stopper iterating
+12:45:14 PlateauStopper: Loss plateauing (Patience=7/20).
+12:45:14 Trainer: Training epoch 133 beginning
+12:45:17 Trainer: Training epoch 133 complete (3.195s). Train Loss: 100.70
+12:45:17 Trainer: Validation loss: 176.26
+12:45:17 EpochStopper: Stopper iterating
+12:45:17 PlateauStopper: Loss plateauing (Patience=8/20).
+12:45:17 Trainer: Training epoch 134 beginning
+12:45:20 Trainer: Training epoch 134 complete (3.195s). Train Loss: 100.52
+12:45:20 Trainer: Validation loss: 176.25
+12:45:20 EpochStopper: Stopper iterating
+12:45:20 PlateauStopper: Loss plateauing (Patience=9/20).
+12:45:20 Trainer: Training epoch 135 beginning
+12:45:24 Trainer: Training epoch 135 complete (3.296s). Train Loss: 100.54
+12:45:24 Trainer: Validation loss: 176.37
+12:45:24 EpochStopper: Stopper iterating
+12:45:24 PlateauStopper: Loss plateauing (Patience=10/20).
+12:45:24 Trainer: Training epoch 136 beginning
+12:45:27 Trainer: Training epoch 136 complete (3.322s). Train Loss: 100.31
+12:45:28 Trainer: Validation loss: 175.90
+12:45:28 EpochStopper: Stopper iterating
+12:45:28 Trainer: Training epoch 137 beginning
+12:45:31 Trainer: Training epoch 137 complete (3.206s). Train Loss: 100.26
+12:45:31 Trainer: Validation loss: 175.83
+12:45:31 EpochStopper: Stopper iterating
+12:45:31 Trainer: Training epoch 138 beginning
+12:45:34 Trainer: Training epoch 138 complete (3.276s). Train Loss: 100.17
+12:45:34 Trainer: Validation loss: 176.07
+12:45:34 EpochStopper: Stopper iterating
+12:45:34 PlateauStopper: Loss plateauing (Patience=1/20).
+12:45:34 Trainer: Saving model checkpoint.
+12:45:35 SimNN: Model saved to ./experiments/SimNN/110122123717/checkpoint_model.pt
+12:45:35 Trainer: Training epoch 139 beginning
+12:45:38 Trainer: Training epoch 139 complete (3.273s). Train Loss: 100.00
+12:45:38 Trainer: Validation loss: 176.51
+12:45:38 EpochStopper: Stopper iterating
+12:45:38 PlateauStopper: Loss plateauing (Patience=2/20).
+12:45:38 Trainer: Training epoch 140 beginning
+12:45:41 Trainer: Training epoch 140 complete (3.243s). Train Loss: 99.90
+12:45:42 Trainer: Validation loss: 176.43
+12:45:42 EpochStopper: Stopper iterating
+12:45:42 PlateauStopper: Loss plateauing (Patience=3/20).
+12:45:42 Trainer: Training epoch 141 beginning
+12:45:45 Trainer: Training epoch 141 complete (3.143s). Train Loss: 99.87
+12:45:45 Trainer: Validation loss: 176.16
+12:45:45 EpochStopper: Stopper iterating
+12:45:45 PlateauStopper: Loss plateauing (Patience=4/20).
+12:45:45 Trainer: Training epoch 142 beginning
+12:45:48 Trainer: Training epoch 142 complete (3.032s). Train Loss: 99.77
+12:45:48 Trainer: Validation loss: 176.09
+12:45:48 EpochStopper: Stopper iterating
+12:45:48 PlateauStopper: Loss plateauing (Patience=5/20).
+12:45:48 Trainer: Training epoch 143 beginning
+12:45:52 Trainer: Training epoch 143 complete (3.178s). Train Loss: 99.65
+12:45:52 Trainer: Validation loss: 175.98
+12:45:52 EpochStopper: Stopper iterating
+12:45:52 PlateauStopper: Loss plateauing (Patience=6/20).
+12:45:52 Trainer: Training epoch 144 beginning
+12:45:55 Trainer: Training epoch 144 complete (3.084s). Train Loss: 99.53
+12:45:55 Trainer: Validation loss: 176.42
+12:45:55 EpochStopper: Stopper iterating
+12:45:55 PlateauStopper: Loss plateauing (Patience=7/20).
+12:45:55 Trainer: Training epoch 145 beginning
+12:45:58 Trainer: Training epoch 145 complete (3.028s). Train Loss: 99.47
+12:45:58 Trainer: Validation loss: 175.86
+12:45:58 EpochStopper: Stopper iterating
+12:45:58 PlateauStopper: Loss plateauing (Patience=8/20).
+12:45:58 Trainer: Training epoch 146 beginning
+12:46:01 Trainer: Training epoch 146 complete (2.902s). Train Loss: 99.35
+12:46:01 Trainer: Validation loss: 176.24
+12:46:01 EpochStopper: Stopper iterating
+12:46:01 PlateauStopper: Loss plateauing (Patience=9/20).
+12:46:01 Trainer: Training epoch 147 beginning
+12:46:05 Trainer: Training epoch 147 complete (3.100s). Train Loss: 99.28
+12:46:05 Trainer: Validation loss: 175.88
+12:46:05 EpochStopper: Stopper iterating
+12:46:05 PlateauStopper: Loss plateauing (Patience=10/20).
+12:46:05 Trainer: Training epoch 148 beginning
+12:46:08 Trainer: Training epoch 148 complete (3.081s). Train Loss: 99.18
+12:46:08 Trainer: Validation loss: 176.15
+12:46:08 EpochStopper: Stopper iterating
+12:46:08 PlateauStopper: Loss plateauing (Patience=11/20).
+12:46:08 Trainer: Training epoch 149 beginning
+12:46:11 Trainer: Training epoch 149 complete (3.171s). Train Loss: 99.10
+12:46:12 Trainer: Validation loss: 175.85
+12:46:12 EpochStopper: Stopper iterating
+12:46:12 PlateauStopper: Loss plateauing (Patience=12/20).
+12:46:12 Trainer: Training epoch 150 beginning
+12:46:15 Trainer: Training epoch 150 complete (3.120s). Train Loss: 98.97
+12:46:15 Trainer: Validation loss: 175.87
+12:46:15 EpochStopper: Stopper iterating
+12:46:15 PlateauStopper: Loss plateauing (Patience=13/20).
+12:46:15 Trainer: Training epoch 151 beginning
+12:46:18 Trainer: Training epoch 151 complete (3.197s). Train Loss: 98.96
+12:46:18 Trainer: Validation loss: 176.00
+12:46:18 EpochStopper: Stopper iterating
+12:46:18 PlateauStopper: Loss plateauing (Patience=14/20).
+12:46:18 Trainer: Training epoch 152 beginning
+12:46:22 Trainer: Training epoch 152 complete (3.164s). Train Loss: 98.78
+12:46:22 Trainer: Validation loss: 176.19
+12:46:22 EpochStopper: Stopper iterating
+12:46:22 PlateauStopper: Loss plateauing (Patience=15/20).
+12:46:22 Trainer: Training epoch 153 beginning
+12:46:25 Trainer: Training epoch 153 complete (3.269s). Train Loss: 98.73
+12:46:25 Trainer: Validation loss: 176.05
+12:46:25 EpochStopper: Stopper iterating
+12:46:25 PlateauStopper: Loss plateauing (Patience=16/20).
+12:46:25 Trainer: Training epoch 154 beginning
+12:46:29 Trainer: Training epoch 154 complete (3.320s). Train Loss: 98.66
+12:46:29 Trainer: Validation loss: 175.74
+12:46:29 EpochStopper: Stopper iterating
+12:46:29 Trainer: Training epoch 155 beginning
+12:46:32 Trainer: Training epoch 155 complete (3.295s). Train Loss: 98.50
+12:46:32 Trainer: Validation loss: 176.05
+12:46:32 EpochStopper: Stopper iterating
+12:46:32 PlateauStopper: Loss plateauing (Patience=1/20).
+12:46:32 Trainer: Saving model checkpoint.
+12:46:33 SimNN: Model saved to ./experiments/SimNN/110122123717/checkpoint_model.pt
+12:46:33 Trainer: Training epoch 156 beginning
+12:46:36 Trainer: Training epoch 156 complete (3.260s). Train Loss: 98.50
+12:46:36 Trainer: Validation loss: 176.02
+12:46:36 EpochStopper: Stopper iterating
+12:46:36 PlateauStopper: Loss plateauing (Patience=2/20).
+12:46:36 Trainer: Training epoch 157 beginning
+12:46:39 Trainer: Training epoch 157 complete (3.252s). Train Loss: 98.34
+12:46:40 Trainer: Validation loss: 175.79
+12:46:40 EpochStopper: Stopper iterating
+12:46:40 PlateauStopper: Loss plateauing (Patience=3/20).
+12:46:40 Trainer: Training epoch 158 beginning
+12:46:43 Trainer: Training epoch 158 complete (3.218s). Train Loss: 98.24
+12:46:43 Trainer: Validation loss: 175.75
+12:46:43 EpochStopper: Stopper iterating
+12:46:43 PlateauStopper: Loss plateauing (Patience=4/20).
+12:46:43 Trainer: Training epoch 159 beginning
+12:46:46 Trainer: Training epoch 159 complete (3.273s). Train Loss: 98.21
+12:46:47 Trainer: Validation loss: 175.88
+12:46:47 EpochStopper: Stopper iterating
+12:46:47 PlateauStopper: Loss plateauing (Patience=5/20).
+12:46:47 Trainer: Training epoch 160 beginning
+12:46:50 Trainer: Training epoch 160 complete (3.271s). Train Loss: 98.15
+12:46:50 Trainer: Validation loss: 175.87
+12:46:50 EpochStopper: Stopper iterating
+12:46:50 PlateauStopper: Loss plateauing (Patience=6/20).
+12:46:50 Trainer: Training epoch 161 beginning
+12:46:53 Trainer: Training epoch 161 complete (3.175s). Train Loss: 98.04
+12:46:53 Trainer: Validation loss: 175.86
+12:46:53 EpochStopper: Stopper iterating
+12:46:53 PlateauStopper: Loss plateauing (Patience=7/20).
+12:46:53 Trainer: Training epoch 162 beginning
+12:46:57 Trainer: Training epoch 162 complete (3.266s). Train Loss: 97.91
+12:46:57 Trainer: Validation loss: 175.62
+12:46:57 EpochStopper: Stopper iterating
+12:46:57 Trainer: Training epoch 163 beginning
+12:47:00 Trainer: Training epoch 163 complete (3.159s). Train Loss: 97.87
+12:47:00 Trainer: Validation loss: 175.71
+12:47:00 EpochStopper: Stopper iterating
+12:47:00 PlateauStopper: Loss plateauing (Patience=1/20).
+12:47:00 Trainer: Saving model checkpoint.
+12:47:01 SimNN: Model saved to ./experiments/SimNN/110122123717/checkpoint_model.pt
+12:47:01 Trainer: Training epoch 164 beginning
+12:47:04 Trainer: Training epoch 164 complete (3.230s). Train Loss: 97.77
+12:47:04 Trainer: Validation loss: 175.82
+12:47:04 EpochStopper: Stopper iterating
+12:47:04 PlateauStopper: Loss plateauing (Patience=2/20).
+12:47:04 Trainer: Training epoch 165 beginning
+12:47:07 Trainer: Training epoch 165 complete (3.379s). Train Loss: 97.68
+12:47:08 Trainer: Validation loss: 175.79
+12:47:08 EpochStopper: Stopper iterating
+12:47:08 PlateauStopper: Loss plateauing (Patience=3/20).
+12:47:08 Trainer: Training epoch 166 beginning
+12:47:11 Trainer: Training epoch 166 complete (3.260s). Train Loss: 97.54
+12:47:11 Trainer: Validation loss: 175.75
+12:47:11 EpochStopper: Stopper iterating
+12:47:11 PlateauStopper: Loss plateauing (Patience=4/20).
+12:47:11 Trainer: Training epoch 167 beginning
+12:47:14 Trainer: Training epoch 167 complete (3.216s). Train Loss: 97.49
+12:47:15 Trainer: Validation loss: 175.94
+12:47:15 EpochStopper: Stopper iterating
+12:47:15 PlateauStopper: Loss plateauing (Patience=5/20).
+12:47:15 Trainer: Training epoch 168 beginning
+12:47:18 Trainer: Training epoch 168 complete (3.227s). Train Loss: 97.46
+12:47:18 Trainer: Validation loss: 175.80
+12:47:18 EpochStopper: Stopper iterating
+12:47:18 PlateauStopper: Loss plateauing (Patience=6/20).
+12:47:18 Trainer: Training epoch 169 beginning
+12:47:21 Trainer: Training epoch 169 complete (3.295s). Train Loss: 97.37
+12:47:22 Trainer: Validation loss: 175.85
+12:47:22 EpochStopper: Stopper iterating
+12:47:22 PlateauStopper: Loss plateauing (Patience=7/20).
+12:47:22 Trainer: Training epoch 170 beginning
+12:47:25 Trainer: Training epoch 170 complete (3.214s). Train Loss: 97.30
+12:47:25 Trainer: Validation loss: 176.20
+12:47:25 EpochStopper: Stopper iterating
+12:47:25 PlateauStopper: Loss plateauing (Patience=8/20).
+12:47:25 Trainer: Training epoch 171 beginning
+12:47:28 Trainer: Training epoch 171 complete (3.270s). Train Loss: 97.21
+12:47:29 Trainer: Validation loss: 175.80
+12:47:29 EpochStopper: Stopper iterating
+12:47:29 PlateauStopper: Loss plateauing (Patience=9/20).
+12:47:29 Trainer: Training epoch 172 beginning
+12:47:32 Trainer: Training epoch 172 complete (3.217s). Train Loss: 97.13
+12:47:32 Trainer: Validation loss: 175.64
+12:47:32 EpochStopper: Stopper iterating
+12:47:32 PlateauStopper: Loss plateauing (Patience=10/20).
+12:47:32 Trainer: Training epoch 173 beginning
+12:47:35 Trainer: Training epoch 173 complete (3.232s). Train Loss: 97.00
+12:47:35 Trainer: Validation loss: 175.62
+12:47:35 EpochStopper: Stopper iterating
+12:47:35 PlateauStopper: Loss plateauing (Patience=11/20).
+12:47:35 Trainer: Training epoch 174 beginning
+12:47:39 Trainer: Training epoch 174 complete (3.226s). Train Loss: 96.98
+12:47:39 Trainer: Validation loss: 175.82
+12:47:39 EpochStopper: Stopper iterating
+12:47:39 PlateauStopper: Loss plateauing (Patience=12/20).
+12:47:39 Trainer: Training epoch 175 beginning
+12:47:42 Trainer: Training epoch 175 complete (3.323s). Train Loss: 96.95
+12:47:43 Trainer: Validation loss: 175.50
+12:47:43 EpochStopper: Stopper iterating
+12:47:43 Trainer: Training epoch 176 beginning
+12:47:46 Trainer: Training epoch 176 complete (3.195s). Train Loss: 96.83
+12:47:46 Trainer: Validation loss: 175.70
+12:47:46 EpochStopper: Stopper iterating
+12:47:46 PlateauStopper: Loss plateauing (Patience=1/20).
+12:47:46 Trainer: Saving model checkpoint.
+12:47:46 SimNN: Model saved to ./experiments/SimNN/110122123717/checkpoint_model.pt
+12:47:46 Trainer: Training epoch 177 beginning
+12:47:49 Trainer: Training epoch 177 complete (3.240s). Train Loss: 96.79
+12:47:50 Trainer: Validation loss: 175.69
+12:47:50 EpochStopper: Stopper iterating
+12:47:50 PlateauStopper: Loss plateauing (Patience=2/20).
+12:47:50 Trainer: Training epoch 178 beginning
+12:47:53 Trainer: Training epoch 178 complete (3.186s). Train Loss: 96.65
+12:47:53 Trainer: Validation loss: 175.64
+12:47:53 EpochStopper: Stopper iterating
+12:47:53 PlateauStopper: Loss plateauing (Patience=3/20).
+12:47:53 Trainer: Training epoch 179 beginning
+12:47:56 Trainer: Training epoch 179 complete (3.225s). Train Loss: 96.52
+12:47:57 Trainer: Validation loss: 175.34
+12:47:57 EpochStopper: Stopper iterating
+12:47:57 Trainer: Training epoch 180 beginning
+12:48:00 Trainer: Training epoch 180 complete (3.210s). Train Loss: 96.53
+12:48:00 Trainer: Validation loss: 175.59
+12:48:00 EpochStopper: Stopper iterating
+12:48:00 PlateauStopper: Loss plateauing (Patience=1/20).
+12:48:00 Trainer: Saving model checkpoint.
+12:48:00 SimNN: Model saved to ./experiments/SimNN/110122123717/checkpoint_model.pt
+12:48:00 Trainer: Training epoch 181 beginning
+12:48:04 Trainer: Training epoch 181 complete (3.290s). Train Loss: 96.36
+12:48:04 Trainer: Validation loss: 175.37
+12:48:04 EpochStopper: Stopper iterating
+12:48:04 PlateauStopper: Loss plateauing (Patience=2/20).
+12:48:04 Trainer: Training epoch 182 beginning
+12:48:07 Trainer: Training epoch 182 complete (3.300s). Train Loss: 96.33
+12:48:07 Trainer: Validation loss: 175.68
+12:48:07 EpochStopper: Stopper iterating
+12:48:07 PlateauStopper: Loss plateauing (Patience=3/20).
+12:48:07 Trainer: Training epoch 183 beginning
+12:48:10 Trainer: Training epoch 183 complete (3.185s). Train Loss: 96.32
+12:48:11 Trainer: Validation loss: 175.81
+12:48:11 EpochStopper: Stopper iterating
+12:48:11 PlateauStopper: Loss plateauing (Patience=4/20).
+12:48:11 Trainer: Training epoch 184 beginning
+12:48:14 Trainer: Training epoch 184 complete (3.217s). Train Loss: 96.23
+12:48:14 Trainer: Validation loss: 175.73
+12:48:14 EpochStopper: Stopper iterating
+12:48:14 PlateauStopper: Loss plateauing (Patience=5/20).
+12:48:14 Trainer: Training epoch 185 beginning
+12:48:17 Trainer: Training epoch 185 complete (3.308s). Train Loss: 96.14
+12:48:18 Trainer: Validation loss: 175.39
+12:48:18 EpochStopper: Stopper iterating
+12:48:18 PlateauStopper: Loss plateauing (Patience=6/20).
+12:48:18 Trainer: Training epoch 186 beginning
+12:48:21 Trainer: Training epoch 186 complete (3.247s). Train Loss: 95.98
+12:48:21 Trainer: Validation loss: 175.43
+12:48:21 EpochStopper: Stopper iterating
+12:48:21 PlateauStopper: Loss plateauing (Patience=7/20).
+12:48:21 Trainer: Training epoch 187 beginning
+12:48:25 Trainer: Training epoch 187 complete (3.293s). Train Loss: 96.03
+12:48:25 Trainer: Validation loss: 175.50
+12:48:25 EpochStopper: Stopper iterating
+12:48:25 PlateauStopper: Loss plateauing (Patience=8/20).
+12:48:25 Trainer: Training epoch 188 beginning
+12:48:28 Trainer: Training epoch 188 complete (3.234s). Train Loss: 95.91
+12:48:28 Trainer: Validation loss: 175.41
+12:48:28 EpochStopper: Stopper iterating
+12:48:28 PlateauStopper: Loss plateauing (Patience=9/20).
+12:48:28 Trainer: Training epoch 189 beginning
+12:48:31 Trainer: Training epoch 189 complete (3.246s). Train Loss: 95.80
+12:48:32 Trainer: Validation loss: 175.94
+12:48:32 EpochStopper: Stopper iterating
+12:48:32 PlateauStopper: Loss plateauing (Patience=10/20).
+12:48:32 Trainer: Training epoch 190 beginning
+12:48:35 Trainer: Training epoch 190 complete (3.226s). Train Loss: 95.78
+12:48:35 Trainer: Validation loss: 175.36
+12:48:35 EpochStopper: Stopper iterating
+12:48:35 PlateauStopper: Loss plateauing (Patience=11/20).
+12:48:35 Trainer: Training epoch 191 beginning
+12:48:38 Trainer: Training epoch 191 complete (3.308s). Train Loss: 95.65
+12:48:39 Trainer: Validation loss: 175.19
+12:48:39 EpochStopper: Stopper iterating
+12:48:39 Trainer: Training epoch 192 beginning
+12:48:42 Trainer: Training epoch 192 complete (3.248s). Train Loss: 95.58
+12:48:42 Trainer: Validation loss: 175.10
+12:48:42 EpochStopper: Stopper iterating
+12:48:42 Trainer: Training epoch 193 beginning
+12:48:45 Trainer: Training epoch 193 complete (3.238s). Train Loss: 95.56
+12:48:46 Trainer: Validation loss: 175.38
+12:48:46 EpochStopper: Stopper iterating
+12:48:46 PlateauStopper: Loss plateauing (Patience=1/20).
+12:48:46 Trainer: Saving model checkpoint.
+12:48:46 SimNN: Model saved to ./experiments/SimNN/110122123717/checkpoint_model.pt
+12:48:46 Trainer: Training epoch 194 beginning
+12:48:49 Trainer: Training epoch 194 complete (3.259s). Train Loss: 95.45
+12:48:49 Trainer: Validation loss: 175.29
+12:48:49 EpochStopper: Stopper iterating
+12:48:49 PlateauStopper: Loss plateauing (Patience=2/20).
+12:48:49 Trainer: Training epoch 195 beginning
+12:48:53 Trainer: Training epoch 195 complete (3.243s). Train Loss: 95.32
+12:48:53 Trainer: Validation loss: 175.44
+12:48:53 EpochStopper: Stopper iterating
+12:48:53 PlateauStopper: Loss plateauing (Patience=3/20).
+12:48:53 Trainer: Training epoch 196 beginning
+12:48:56 Trainer: Training epoch 196 complete (3.232s). Train Loss: 95.29
+12:48:56 Trainer: Validation loss: 175.45
+12:48:56 EpochStopper: Stopper iterating
+12:48:56 PlateauStopper: Loss plateauing (Patience=4/20).
+12:48:56 Trainer: Training epoch 197 beginning
+12:49:00 Trainer: Training epoch 197 complete (3.204s). Train Loss: 95.33
+12:49:00 Trainer: Validation loss: 175.18
+12:49:00 EpochStopper: Stopper iterating
+12:49:00 PlateauStopper: Loss plateauing (Patience=5/20).
+12:49:00 Trainer: Training epoch 198 beginning
+12:49:03 Trainer: Training epoch 198 complete (3.306s). Train Loss: 95.09
+12:49:03 Trainer: Validation loss: 175.72
+12:49:03 EpochStopper: Stopper iterating
+12:49:03 PlateauStopper: Loss plateauing (Patience=6/20).
+12:49:03 Trainer: Training epoch 199 beginning
+12:49:07 Trainer: Training epoch 199 complete (3.233s). Train Loss: 95.05
+12:49:07 Trainer: Validation loss: 175.24
+12:49:07 EpochStopper: Stopper iterating
+12:49:07 PlateauStopper: Loss plateauing (Patience=7/20).
+12:49:07 Trainer: Training epoch 200 beginning
+12:49:10 Trainer: Training epoch 200 complete (3.252s). Train Loss: 94.99
+12:49:10 Trainer: Validation loss: 175.14
+12:49:10 EpochStopper: Stopper iterating
+12:49:10 PlateauStopper: Loss plateauing (Patience=8/20).
+12:49:10 Trainer: Training epoch 201 beginning
+12:49:14 Trainer: Training epoch 201 complete (3.249s). Train Loss: 94.91
+12:49:14 Trainer: Validation loss: 174.90
+12:49:14 EpochStopper: Stopper iterating
+12:49:14 Trainer: Training epoch 202 beginning
+12:49:17 Trainer: Training epoch 202 complete (3.213s). Train Loss: 94.87
+12:49:17 Trainer: Validation loss: 175.38
+12:49:17 EpochStopper: Stopper iterating
+12:49:17 PlateauStopper: Loss plateauing (Patience=1/20).
+12:49:17 Trainer: Saving model checkpoint.
+12:49:17 SimNN: Model saved to ./experiments/SimNN/110122123717/checkpoint_model.pt
+12:49:17 Trainer: Training epoch 203 beginning
+12:49:21 Trainer: Training epoch 203 complete (3.258s). Train Loss: 94.75
+12:49:21 Trainer: Validation loss: 175.47
+12:49:21 EpochStopper: Stopper iterating
+12:49:21 PlateauStopper: Loss plateauing (Patience=2/20).
+12:49:21 Trainer: Training epoch 204 beginning
+12:49:24 Trainer: Training epoch 204 complete (3.302s). Train Loss: 94.69
+12:49:24 Trainer: Validation loss: 175.14
+12:49:24 EpochStopper: Stopper iterating
+12:49:24 PlateauStopper: Loss plateauing (Patience=3/20).
+12:49:24 Trainer: Training epoch 205 beginning
+12:49:28 Trainer: Training epoch 205 complete (3.214s). Train Loss: 94.61
+12:49:28 Trainer: Validation loss: 175.60
+12:49:28 EpochStopper: Stopper iterating
+12:49:28 PlateauStopper: Loss plateauing (Patience=4/20).
+12:49:28 Trainer: Training epoch 206 beginning
+12:49:31 Trainer: Training epoch 206 complete (3.153s). Train Loss: 94.52
+12:49:31 Trainer: Validation loss: 174.92
+12:49:31 EpochStopper: Stopper iterating
+12:49:31 PlateauStopper: Loss plateauing (Patience=5/20).
+12:49:31 Trainer: Training epoch 207 beginning
+12:49:35 Trainer: Training epoch 207 complete (3.215s). Train Loss: 94.51
+12:49:35 Trainer: Validation loss: 175.19
+12:49:35 EpochStopper: Stopper iterating
+12:49:35 PlateauStopper: Loss plateauing (Patience=6/20).
+12:49:35 Trainer: Training epoch 208 beginning
+12:49:38 Trainer: Training epoch 208 complete (3.252s). Train Loss: 94.43
+12:49:38 Trainer: Validation loss: 175.59
+12:49:38 EpochStopper: Stopper iterating
+12:49:38 PlateauStopper: Loss plateauing (Patience=7/20).
+12:49:38 Trainer: Training epoch 209 beginning
+12:49:41 Trainer: Training epoch 209 complete (3.174s). Train Loss: 94.38
+12:49:42 Trainer: Validation loss: 175.02
+12:49:42 EpochStopper: Stopper iterating
+12:49:42 PlateauStopper: Loss plateauing (Patience=8/20).
+12:49:42 Trainer: Training epoch 210 beginning
+12:49:45 Trainer: Training epoch 210 complete (3.206s). Train Loss: 94.17
+12:49:45 Trainer: Validation loss: 175.28
+12:49:45 EpochStopper: Stopper iterating
+12:49:45 PlateauStopper: Loss plateauing (Patience=9/20).
+12:49:45 Trainer: Training epoch 211 beginning
+12:49:48 Trainer: Training epoch 211 complete (3.275s). Train Loss: 94.23
+12:49:49 Trainer: Validation loss: 175.04
+12:49:49 EpochStopper: Stopper iterating
+12:49:49 PlateauStopper: Loss plateauing (Patience=10/20).
+12:49:49 Trainer: Training epoch 212 beginning
+12:49:52 Trainer: Training epoch 212 complete (3.238s). Train Loss: 94.13
+12:49:52 Trainer: Validation loss: 175.13
+12:49:52 EpochStopper: Stopper iterating
+12:49:52 PlateauStopper: Loss plateauing (Patience=11/20).
+12:49:52 Trainer: Training epoch 213 beginning
+12:49:55 Trainer: Training epoch 213 complete (3.167s). Train Loss: 93.95
+12:49:55 Trainer: Validation loss: 175.06
+12:49:55 EpochStopper: Stopper iterating
+12:49:55 PlateauStopper: Loss plateauing (Patience=12/20).
+12:49:55 Trainer: Training epoch 214 beginning
+12:49:59 Trainer: Training epoch 214 complete (3.204s). Train Loss: 94.03
+12:49:59 Trainer: Validation loss: 174.94
+12:49:59 EpochStopper: Stopper iterating
+12:49:59 PlateauStopper: Loss plateauing (Patience=13/20).
+12:49:59 Trainer: Training epoch 215 beginning
+12:50:02 Trainer: Training epoch 215 complete (3.213s). Train Loss: 93.93
+12:50:02 Trainer: Validation loss: 175.14
+12:50:02 EpochStopper: Stopper iterating
+12:50:02 PlateauStopper: Loss plateauing (Patience=14/20).
+12:50:02 Trainer: Training epoch 216 beginning
+12:50:06 Trainer: Training epoch 216 complete (3.255s). Train Loss: 93.87
+12:50:06 Trainer: Validation loss: 175.19
+12:50:06 EpochStopper: Stopper iterating
+12:50:06 PlateauStopper: Loss plateauing (Patience=15/20).
+12:50:06 Trainer: Training epoch 217 beginning
+12:50:09 Trainer: Training epoch 217 complete (3.166s). Train Loss: 93.79
+12:50:09 Trainer: Validation loss: 174.81
+12:50:09 EpochStopper: Stopper iterating
+12:50:09 Trainer: Training epoch 218 beginning
+12:50:13 Trainer: Training epoch 218 complete (3.250s). Train Loss: 93.74
+12:50:13 Trainer: Validation loss: 174.86
+12:50:13 EpochStopper: Stopper iterating
+12:50:13 PlateauStopper: Loss plateauing (Patience=1/20).
+12:50:13 Trainer: Saving model checkpoint.
+12:50:13 SimNN: Model saved to ./experiments/SimNN/110122123717/checkpoint_model.pt
+12:50:13 Trainer: Training epoch 219 beginning
+12:50:16 Trainer: Training epoch 219 complete (3.312s). Train Loss: 93.67
+12:50:17 Trainer: Validation loss: 175.37
+12:50:17 EpochStopper: Stopper iterating
+12:50:17 PlateauStopper: Loss plateauing (Patience=2/20).
+12:50:17 Trainer: Training epoch 220 beginning
+12:50:20 Trainer: Training epoch 220 complete (3.375s). Train Loss: 93.62
+12:50:20 Trainer: Validation loss: 174.85
+12:50:20 EpochStopper: Stopper iterating
+12:50:20 PlateauStopper: Loss plateauing (Patience=3/20).
+12:50:20 Trainer: Training epoch 221 beginning
+12:50:23 Trainer: Training epoch 221 complete (3.196s). Train Loss: 93.52
+12:50:24 Trainer: Validation loss: 175.44
+12:50:24 EpochStopper: Stopper iterating
+12:50:24 PlateauStopper: Loss plateauing (Patience=4/20).
+12:50:24 Trainer: Training epoch 222 beginning
+12:50:27 Trainer: Training epoch 222 complete (3.241s). Train Loss: 93.43
+12:50:27 Trainer: Validation loss: 175.20
+12:50:27 EpochStopper: Stopper iterating
+12:50:27 PlateauStopper: Loss plateauing (Patience=5/20).
+12:50:27 Trainer: Training epoch 223 beginning
+12:50:30 Trainer: Training epoch 223 complete (3.180s). Train Loss: 93.46
+12:50:30 Trainer: Validation loss: 174.99
+12:50:30 EpochStopper: Stopper iterating
+12:50:30 PlateauStopper: Loss plateauing (Patience=6/20).
+12:50:30 Trainer: Training epoch 224 beginning
+12:50:34 Trainer: Training epoch 224 complete (3.277s). Train Loss: 93.37
+12:50:34 Trainer: Validation loss: 175.02
+12:50:34 EpochStopper: Stopper iterating
+12:50:34 PlateauStopper: Loss plateauing (Patience=7/20).
+12:50:34 Trainer: Training epoch 225 beginning
+12:50:37 Trainer: Training epoch 225 complete (3.187s). Train Loss: 93.22
+12:50:37 Trainer: Validation loss: 174.88
+12:50:37 EpochStopper: Stopper iterating
+12:50:37 PlateauStopper: Loss plateauing (Patience=8/20).
+12:50:37 Trainer: Training epoch 226 beginning
+12:50:41 Trainer: Training epoch 226 complete (3.332s). Train Loss: 93.15
+12:50:41 Trainer: Validation loss: 174.77
+12:50:41 EpochStopper: Stopper iterating
+12:50:41 Trainer: Training epoch 227 beginning
+12:50:44 Trainer: Training epoch 227 complete (3.152s). Train Loss: 93.12
+12:50:44 Trainer: Validation loss: 175.58
+12:50:44 EpochStopper: Stopper iterating
+12:50:44 PlateauStopper: Loss plateauing (Patience=1/20).
+12:50:44 Trainer: Saving model checkpoint.
+12:50:45 SimNN: Model saved to ./experiments/SimNN/110122123717/checkpoint_model.pt
+12:50:45 Trainer: Training epoch 228 beginning
+12:50:48 Trainer: Training epoch 228 complete (3.222s). Train Loss: 93.00
+12:50:48 Trainer: Validation loss: 175.15
+12:50:48 EpochStopper: Stopper iterating
+12:50:48 PlateauStopper: Loss plateauing (Patience=2/20).
+12:50:48 Trainer: Training epoch 229 beginning
+12:50:51 Trainer: Training epoch 229 complete (3.201s). Train Loss: 93.02
+12:50:51 Trainer: Validation loss: 175.24
+12:50:51 EpochStopper: Stopper iterating
+12:50:52 PlateauStopper: Loss plateauing (Patience=3/20).
+12:50:52 Trainer: Training epoch 230 beginning
+12:50:55 Trainer: Training epoch 230 complete (3.231s). Train Loss: 92.89
+12:50:55 Trainer: Validation loss: 174.73
+12:50:55 EpochStopper: Stopper iterating
+12:50:55 Trainer: Training epoch 231 beginning
+12:50:58 Trainer: Training epoch 231 complete (3.175s). Train Loss: 92.83
+12:50:58 Trainer: Validation loss: 174.99
+12:50:58 EpochStopper: Stopper iterating
+12:50:58 PlateauStopper: Loss plateauing (Patience=1/20).
+12:50:58 Trainer: Saving model checkpoint.
+12:50:59 SimNN: Model saved to ./experiments/SimNN/110122123717/checkpoint_model.pt
+12:50:59 Trainer: Training epoch 232 beginning
+12:51:02 Trainer: Training epoch 232 complete (3.274s). Train Loss: 92.78
+12:51:02 Trainer: Validation loss: 175.14
+12:51:02 EpochStopper: Stopper iterating
+12:51:02 PlateauStopper: Loss plateauing (Patience=2/20).
+12:51:02 Trainer: Training epoch 233 beginning
+12:51:05 Trainer: Training epoch 233 complete (3.225s). Train Loss: 92.71
+12:51:06 Trainer: Validation loss: 175.25
+12:51:06 EpochStopper: Stopper iterating
+12:51:06 PlateauStopper: Loss plateauing (Patience=3/20).
+12:51:06 Trainer: Training epoch 234 beginning
+12:51:09 Trainer: Training epoch 234 complete (3.239s). Train Loss: 92.72
+12:51:09 Trainer: Validation loss: 174.88
+12:51:09 EpochStopper: Stopper iterating
+12:51:09 PlateauStopper: Loss plateauing (Patience=4/20).
+12:51:09 Trainer: Training epoch 235 beginning
+12:51:12 Trainer: Training epoch 235 complete (3.180s). Train Loss: 92.59
+12:51:12 Trainer: Validation loss: 174.87
+12:51:12 EpochStopper: Stopper iterating
+12:51:12 PlateauStopper: Loss plateauing (Patience=5/20).
+12:51:12 Trainer: Training epoch 236 beginning
+12:51:16 Trainer: Training epoch 236 complete (3.243s). Train Loss: 92.54
+12:51:16 Trainer: Validation loss: 175.13
+12:51:16 EpochStopper: Stopper iterating
+12:51:16 PlateauStopper: Loss plateauing (Patience=6/20).
+12:51:16 Trainer: Training epoch 237 beginning
+12:51:19 Trainer: Training epoch 237 complete (3.273s). Train Loss: 92.55
+12:51:19 Trainer: Validation loss: 174.92
+12:51:19 EpochStopper: Stopper iterating
+12:51:19 PlateauStopper: Loss plateauing (Patience=7/20).
+12:51:19 Trainer: Training epoch 238 beginning
+12:51:23 Trainer: Training epoch 238 complete (3.214s). Train Loss: 92.39
+12:51:23 Trainer: Validation loss: 174.57
+12:51:23 EpochStopper: Stopper iterating
+12:51:23 Trainer: Training epoch 239 beginning
+12:51:26 Trainer: Training epoch 239 complete (3.356s). Train Loss: 92.36
+12:51:27 Trainer: Validation loss: 175.03
+12:51:27 EpochStopper: Stopper iterating
+12:51:27 PlateauStopper: Loss plateauing (Patience=1/20).
+12:51:27 Trainer: Saving model checkpoint.
+12:51:27 SimNN: Model saved to ./experiments/SimNN/110122123717/checkpoint_model.pt
+12:51:27 Trainer: Training epoch 240 beginning
+12:51:30 Trainer: Training epoch 240 complete (3.316s). Train Loss: 92.20
+12:51:30 Trainer: Validation loss: 175.13
+12:51:30 EpochStopper: Stopper iterating
+12:51:30 PlateauStopper: Loss plateauing (Patience=2/20).
+12:51:30 Trainer: Training epoch 241 beginning
+12:51:34 Trainer: Training epoch 241 complete (3.325s). Train Loss: 92.21
+12:51:34 Trainer: Validation loss: 175.02
+12:51:34 EpochStopper: Stopper iterating
+12:51:34 PlateauStopper: Loss plateauing (Patience=3/20).
+12:51:34 Trainer: Training epoch 242 beginning
+12:51:37 Trainer: Training epoch 242 complete (3.322s). Train Loss: 92.14
+12:51:37 Trainer: Validation loss: 174.50
+12:51:37 EpochStopper: Stopper iterating
+12:51:37 Trainer: Training epoch 243 beginning
+12:51:41 Trainer: Training epoch 243 complete (3.268s). Train Loss: 92.16
+12:51:41 Trainer: Validation loss: 174.88
+12:51:41 EpochStopper: Stopper iterating
+12:51:41 PlateauStopper: Loss plateauing (Patience=1/20).
+12:51:41 Trainer: Saving model checkpoint.
+12:51:41 SimNN: Model saved to ./experiments/SimNN/110122123717/checkpoint_model.pt
+12:51:41 Trainer: Training epoch 244 beginning
+12:51:45 Trainer: Training epoch 244 complete (3.333s). Train Loss: 92.00
+12:51:45 Trainer: Validation loss: 174.54
+12:51:45 EpochStopper: Stopper iterating
+12:51:45 PlateauStopper: Loss plateauing (Patience=2/20).
+12:51:45 Trainer: Training epoch 245 beginning
+12:51:48 Trainer: Training epoch 245 complete (3.281s). Train Loss: 91.99
+12:51:48 Trainer: Validation loss: 175.01
+12:51:48 EpochStopper: Stopper iterating
+12:51:48 PlateauStopper: Loss plateauing (Patience=3/20).
+12:51:48 Trainer: Training epoch 246 beginning
+12:51:51 Trainer: Training epoch 246 complete (3.207s). Train Loss: 91.86
+12:51:52 Trainer: Validation loss: 174.55
+12:51:52 EpochStopper: Stopper iterating
+12:51:52 PlateauStopper: Loss plateauing (Patience=4/20).
+12:51:52 Trainer: Training epoch 247 beginning
+12:51:55 Trainer: Training epoch 247 complete (3.263s). Train Loss: 91.84
+12:51:55 Trainer: Validation loss: 174.75
+12:51:55 EpochStopper: Stopper iterating
+12:51:55 PlateauStopper: Loss plateauing (Patience=5/20).
+12:51:55 Trainer: Training epoch 248 beginning
+12:51:58 Trainer: Training epoch 248 complete (3.239s). Train Loss: 91.78
+12:51:59 Trainer: Validation loss: 174.89
+12:51:59 EpochStopper: Stopper iterating
+12:51:59 PlateauStopper: Loss plateauing (Patience=6/20).
+12:51:59 Trainer: Training epoch 249 beginning
+12:52:02 Trainer: Training epoch 249 complete (3.132s). Train Loss: 91.71
+12:52:02 Trainer: Validation loss: 174.86
+12:52:02 EpochStopper: Stopper iterating
+12:52:02 PlateauStopper: Loss plateauing (Patience=7/20).
+12:52:02 Trainer: Training epoch 250 beginning
+12:52:05 Trainer: Training epoch 250 complete (3.239s). Train Loss: 91.61
+12:52:06 Trainer: Validation loss: 175.24
+12:52:06 EpochStopper: Stopper iterating
+12:52:06 PlateauStopper: Loss plateauing (Patience=8/20).
+12:52:06 Trainer: Training epoch 251 beginning
+12:52:09 Trainer: Training epoch 251 complete (3.270s). Train Loss: 91.59
+12:52:09 Trainer: Validation loss: 174.80
+12:52:09 EpochStopper: Stopper iterating
+12:52:09 PlateauStopper: Loss plateauing (Patience=9/20).
+12:52:09 Trainer: Training epoch 252 beginning
+12:52:12 Trainer: Training epoch 252 complete (3.243s). Train Loss: 91.57
+12:52:13 Trainer: Validation loss: 174.82
+12:52:13 EpochStopper: Stopper iterating
+12:52:13 PlateauStopper: Loss plateauing (Patience=10/20).
+12:52:13 Trainer: Training epoch 253 beginning
+12:52:16 Trainer: Training epoch 253 complete (3.250s). Train Loss: 91.44
+12:52:16 Trainer: Validation loss: 175.33
+12:52:16 EpochStopper: Stopper iterating
+12:52:16 PlateauStopper: Loss plateauing (Patience=11/20).
+12:52:16 Trainer: Training epoch 254 beginning
+12:52:19 Trainer: Training epoch 254 complete (3.254s). Train Loss: 91.41
+12:52:19 Trainer: Validation loss: 174.66
+12:52:19 EpochStopper: Stopper iterating
+12:52:19 PlateauStopper: Loss plateauing (Patience=12/20).
+12:52:19 Trainer: Training epoch 255 beginning
+12:52:23 Trainer: Training epoch 255 complete (3.197s). Train Loss: 91.26
+12:52:23 Trainer: Validation loss: 174.92
+12:52:23 EpochStopper: Stopper iterating
+12:52:23 PlateauStopper: Loss plateauing (Patience=13/20).
+12:52:23 Trainer: Training epoch 256 beginning
+12:52:26 Trainer: Training epoch 256 complete (3.266s). Train Loss: 91.26
+12:52:26 Trainer: Validation loss: 174.94
+12:52:26 EpochStopper: Stopper iterating
+12:52:26 PlateauStopper: Loss plateauing (Patience=14/20).
+12:52:26 Trainer: Training epoch 257 beginning
+12:52:30 Trainer: Training epoch 257 complete (3.256s). Train Loss: 91.16
+12:52:30 Trainer: Validation loss: 175.00
+12:52:30 EpochStopper: Stopper iterating
+12:52:30 PlateauStopper: Loss plateauing (Patience=15/20).
+12:52:30 Trainer: Training epoch 258 beginning
+12:52:33 Trainer: Training epoch 258 complete (3.250s). Train Loss: 91.10
+12:52:33 Trainer: Validation loss: 174.93
+12:52:33 EpochStopper: Stopper iterating
+12:52:33 PlateauStopper: Loss plateauing (Patience=16/20).
+12:52:33 Trainer: Training epoch 259 beginning
+12:52:37 Trainer: Training epoch 259 complete (3.277s). Train Loss: 91.05
+12:52:37 Trainer: Validation loss: 175.03
+12:52:37 EpochStopper: Stopper iterating
+12:52:37 PlateauStopper: Loss plateauing (Patience=17/20).
+12:52:37 Trainer: Training epoch 260 beginning
+12:52:40 Trainer: Training epoch 260 complete (3.196s). Train Loss: 91.00
+12:52:40 Trainer: Validation loss: 174.96
+12:52:40 EpochStopper: Stopper iterating
+12:52:40 PlateauStopper: Loss plateauing (Patience=18/20).
+12:52:40 Trainer: Training epoch 261 beginning
+12:52:44 Trainer: Training epoch 261 complete (3.230s). Train Loss: 90.94
+12:52:44 Trainer: Validation loss: 174.70
+12:52:44 EpochStopper: Stopper iterating
+12:52:44 PlateauStopper: Loss plateauing (Patience=19/20).
+12:52:44 Trainer: Training epoch 262 beginning
+12:52:47 Trainer: Training epoch 262 complete (3.317s). Train Loss: 90.82
+12:52:47 Trainer: Validation loss: 174.91
+12:52:47 EpochStopper: Stopper iterating
+12:52:47 PlateauStopper: Loss plateauing (Patience=20/20).
+12:52:47 Trainer: Training epoch 263 beginning
+12:52:51 Trainer: Training epoch 263 complete (3.197s). Train Loss: 90.73
+12:52:51 Trainer: Validation loss: 174.47
+12:52:51 EpochStopper: Stopper iterating
+12:52:51 Trainer: Training epoch 264 beginning
+12:52:54 Trainer: Training epoch 264 complete (3.229s). Train Loss: 90.77
+12:52:54 Trainer: Validation loss: 174.39
+12:52:54 EpochStopper: Stopper iterating
+12:52:54 Trainer: Training epoch 265 beginning
+12:52:58 Trainer: Training epoch 265 complete (3.269s). Train Loss: 90.68
+12:52:58 Trainer: Validation loss: 174.39
+12:52:58 EpochStopper: Stopper iterating
+12:52:58 PlateauStopper: Loss plateauing (Patience=1/20).
+12:52:58 Trainer: Saving model checkpoint.
+12:52:58 SimNN: Model saved to ./experiments/SimNN/110122123717/checkpoint_model.pt
+12:52:58 Trainer: Training epoch 266 beginning
+12:53:01 Trainer: Training epoch 266 complete (3.221s). Train Loss: 90.62
+12:53:01 Trainer: Validation loss: 174.40
+12:53:01 EpochStopper: Stopper iterating
+12:53:01 PlateauStopper: Loss plateauing (Patience=2/20).
+12:53:01 Trainer: Training epoch 267 beginning
+12:53:05 Trainer: Training epoch 267 complete (3.290s). Train Loss: 90.58
+12:53:05 Trainer: Validation loss: 175.29
+12:53:05 EpochStopper: Stopper iterating
+12:53:05 PlateauStopper: Loss plateauing (Patience=3/20).
+12:53:05 Trainer: Training epoch 268 beginning
+12:53:08 Trainer: Training epoch 268 complete (3.235s). Train Loss: 90.53
+12:53:08 Trainer: Validation loss: 174.48
+12:53:08 EpochStopper: Stopper iterating
+12:53:08 PlateauStopper: Loss plateauing (Patience=4/20).
+12:53:08 Trainer: Training epoch 269 beginning
+12:53:12 Trainer: Training epoch 269 complete (3.308s). Train Loss: 90.50
+12:53:12 Trainer: Validation loss: 174.92
+12:53:12 EpochStopper: Stopper iterating
+12:53:12 PlateauStopper: Loss plateauing (Patience=5/20).
+12:53:12 Trainer: Training epoch 270 beginning
+12:53:15 Trainer: Training epoch 270 complete (3.268s). Train Loss: 90.44
+12:53:16 Trainer: Validation loss: 174.61
+12:53:16 EpochStopper: Stopper iterating
+12:53:16 PlateauStopper: Loss plateauing (Patience=6/20).
+12:53:16 Trainer: Training epoch 271 beginning
+12:53:19 Trainer: Training epoch 271 complete (3.205s). Train Loss: 90.45
+12:53:19 Trainer: Validation loss: 174.48
+12:53:19 EpochStopper: Stopper iterating
+12:53:19 PlateauStopper: Loss plateauing (Patience=7/20).
+12:53:19 Trainer: Training epoch 272 beginning
+12:53:22 Trainer: Training epoch 272 complete (3.231s). Train Loss: 90.27
+12:53:22 Trainer: Validation loss: 174.58
+12:53:22 EpochStopper: Stopper iterating
+12:53:22 PlateauStopper: Loss plateauing (Patience=8/20).
+12:53:22 Trainer: Training epoch 273 beginning
+12:53:26 Trainer: Training epoch 273 complete (3.257s). Train Loss: 90.28
+12:53:26 Trainer: Validation loss: 174.49
+12:53:26 EpochStopper: Stopper iterating
+12:53:26 PlateauStopper: Loss plateauing (Patience=9/20).
+12:53:26 Trainer: Training epoch 274 beginning
+12:53:29 Trainer: Training epoch 274 complete (3.186s). Train Loss: 90.25
+12:53:29 Trainer: Validation loss: 174.68
+12:53:29 EpochStopper: Stopper iterating
+12:53:29 PlateauStopper: Loss plateauing (Patience=10/20).
+12:53:29 Trainer: Training epoch 275 beginning
+12:53:33 Trainer: Training epoch 275 complete (3.241s). Train Loss: 90.05
+12:53:33 Trainer: Validation loss: 174.93
+12:53:33 EpochStopper: Stopper iterating
+12:53:33 PlateauStopper: Loss plateauing (Patience=11/20).
+12:53:33 Trainer: Training epoch 276 beginning
+12:53:36 Trainer: Training epoch 276 complete (3.234s). Train Loss: 90.08
+12:53:36 Trainer: Validation loss: 174.57
+12:53:36 EpochStopper: Stopper iterating
+12:53:36 PlateauStopper: Loss plateauing (Patience=12/20).
+12:53:36 Trainer: Training epoch 277 beginning
+12:53:40 Trainer: Training epoch 277 complete (3.252s). Train Loss: 90.05
+12:53:40 Trainer: Validation loss: 174.55
+12:53:40 EpochStopper: Stopper iterating
+12:53:40 PlateauStopper: Loss plateauing (Patience=13/20).
+12:53:40 Trainer: Training epoch 278 beginning
+12:53:43 Trainer: Training epoch 278 complete (3.259s). Train Loss: 89.87
+12:53:43 Trainer: Validation loss: 174.53
+12:53:43 EpochStopper: Stopper iterating
+12:53:43 PlateauStopper: Loss plateauing (Patience=14/20).
+12:53:43 Trainer: Training epoch 279 beginning
+12:53:47 Trainer: Training epoch 279 complete (3.305s). Train Loss: 89.92
+12:53:47 Trainer: Validation loss: 175.02
+12:53:47 EpochStopper: Stopper iterating
+12:53:47 PlateauStopper: Loss plateauing (Patience=15/20).
+12:53:47 Trainer: Training epoch 280 beginning
+12:53:50 Trainer: Training epoch 280 complete (3.256s). Train Loss: 89.76
+12:53:50 Trainer: Validation loss: 174.43
+12:53:50 EpochStopper: Stopper iterating
+12:53:50 PlateauStopper: Loss plateauing (Patience=16/20).
+12:53:50 Trainer: Training epoch 281 beginning
+12:53:53 Trainer: Training epoch 281 complete (3.194s). Train Loss: 89.77
+12:53:54 Trainer: Validation loss: 174.36
+12:53:54 EpochStopper: Stopper iterating
+12:53:54 Trainer: Training epoch 282 beginning
+12:53:57 Trainer: Training epoch 282 complete (3.308s). Train Loss: 89.73
+12:53:57 Trainer: Validation loss: 174.55
+12:53:57 EpochStopper: Stopper iterating
+12:53:57 PlateauStopper: Loss plateauing (Patience=1/20).
+12:53:57 Trainer: Saving model checkpoint.
+12:53:58 SimNN: Model saved to ./experiments/SimNN/110122123717/checkpoint_model.pt
+12:53:58 Trainer: Training epoch 283 beginning
+12:54:01 Trainer: Training epoch 283 complete (3.328s). Train Loss: 89.63
+12:54:01 Trainer: Validation loss: 174.43
+12:54:01 EpochStopper: Stopper iterating
+12:54:01 PlateauStopper: Loss plateauing (Patience=2/20).
+12:54:01 Trainer: Training epoch 284 beginning
+12:54:04 Trainer: Training epoch 284 complete (3.260s). Train Loss: 89.61
+12:54:05 Trainer: Validation loss: 174.79
+12:54:05 EpochStopper: Stopper iterating
+12:54:05 PlateauStopper: Loss plateauing (Patience=3/20).
+12:54:05 Trainer: Training epoch 285 beginning
+12:54:08 Trainer: Training epoch 285 complete (3.106s). Train Loss: 89.49
+12:54:08 Trainer: Validation loss: 174.43
+12:54:08 EpochStopper: Stopper iterating
+12:54:08 PlateauStopper: Loss plateauing (Patience=4/20).
+12:54:08 Trainer: Training epoch 286 beginning
+12:54:11 Trainer: Training epoch 286 complete (3.226s). Train Loss: 89.48
+12:54:11 Trainer: Validation loss: 174.84
+12:54:11 EpochStopper: Stopper iterating
+12:54:11 PlateauStopper: Loss plateauing (Patience=5/20).
+12:54:11 Trainer: Training epoch 287 beginning
+12:54:15 Trainer: Training epoch 287 complete (3.216s). Train Loss: 89.39
+12:54:15 Trainer: Validation loss: 174.87
+12:54:15 EpochStopper: Stopper iterating
+12:54:15 PlateauStopper: Loss plateauing (Patience=6/20).
+12:54:15 Trainer: Training epoch 288 beginning
+12:54:18 Trainer: Training epoch 288 complete (3.207s). Train Loss: 89.40
+12:54:18 Trainer: Validation loss: 174.37
+12:54:18 EpochStopper: Stopper iterating
+12:54:18 PlateauStopper: Loss plateauing (Patience=7/20).
+12:54:18 Trainer: Training epoch 289 beginning
+12:54:21 Trainer: Training epoch 289 complete (3.149s). Train Loss: 89.32
+12:54:22 Trainer: Validation loss: 174.45
+12:54:22 EpochStopper: Stopper iterating
+12:54:22 PlateauStopper: Loss plateauing (Patience=8/20).
+12:54:22 Trainer: Training epoch 290 beginning
+12:54:25 Trainer: Training epoch 290 complete (3.284s). Train Loss: 89.29
+12:54:25 Trainer: Validation loss: 174.49
+12:54:25 EpochStopper: Stopper iterating
+12:54:25 PlateauStopper: Loss plateauing (Patience=9/20).
+12:54:25 Trainer: Training epoch 291 beginning
+12:54:28 Trainer: Training epoch 291 complete (3.173s). Train Loss: 89.12
+12:54:29 Trainer: Validation loss: 174.62
+12:54:29 EpochStopper: Stopper iterating
+12:54:29 PlateauStopper: Loss plateauing (Patience=10/20).
+12:54:29 Trainer: Training epoch 292 beginning
+12:54:32 Trainer: Training epoch 292 complete (3.327s). Train Loss: 89.17
+12:54:32 Trainer: Validation loss: 174.93
+12:54:32 EpochStopper: Stopper iterating
+12:54:32 PlateauStopper: Loss plateauing (Patience=11/20).
+12:54:32 Trainer: Training epoch 293 beginning
+12:54:35 Trainer: Training epoch 293 complete (3.207s). Train Loss: 89.06
+12:54:36 Trainer: Validation loss: 174.35
+12:54:36 EpochStopper: Stopper iterating
+12:54:36 Trainer: Training epoch 294 beginning
+12:54:39 Trainer: Training epoch 294 complete (3.229s). Train Loss: 88.96
+12:54:39 Trainer: Validation loss: 174.50
+12:54:39 EpochStopper: Stopper iterating
+12:54:39 PlateauStopper: Loss plateauing (Patience=1/20).
+12:54:39 Trainer: Saving model checkpoint.
+12:54:39 SimNN: Model saved to ./experiments/SimNN/110122123717/checkpoint_model.pt
+12:54:39 Trainer: Training epoch 295 beginning
+12:54:43 Trainer: Training epoch 295 complete (3.258s). Train Loss: 89.01
+12:54:43 Trainer: Validation loss: 174.83
+12:54:43 EpochStopper: Stopper iterating
+12:54:43 PlateauStopper: Loss plateauing (Patience=2/20).
+12:54:43 Trainer: Training epoch 296 beginning
+12:54:46 Trainer: Training epoch 296 complete (3.288s). Train Loss: 88.91
+12:54:46 Trainer: Validation loss: 174.80
+12:54:46 EpochStopper: Stopper iterating
+12:54:46 PlateauStopper: Loss plateauing (Patience=3/20).
+12:54:46 Trainer: Training epoch 297 beginning
+12:54:49 Trainer: Training epoch 297 complete (3.159s). Train Loss: 88.85
+12:54:50 Trainer: Validation loss: 174.84
+12:54:50 EpochStopper: Stopper iterating
+12:54:50 PlateauStopper: Loss plateauing (Patience=4/20).
+12:54:50 Trainer: Training epoch 298 beginning
+12:54:53 Trainer: Training epoch 298 complete (3.243s). Train Loss: 88.81
+12:54:53 Trainer: Validation loss: 174.54
+12:54:53 EpochStopper: Stopper iterating
+12:54:53 PlateauStopper: Loss plateauing (Patience=5/20).
+12:54:53 Trainer: Training epoch 299 beginning
+12:54:56 Trainer: Training epoch 299 complete (3.281s). Train Loss: 88.82
+12:54:57 Trainer: Validation loss: 174.67
+12:54:57 EpochStopper: Stopper iterating
+12:54:57 PlateauStopper: Loss plateauing (Patience=6/20).
+12:54:57 Trainer: Training epoch 300 beginning
+12:55:00 Trainer: Training epoch 300 complete (3.180s). Train Loss: 88.67
+12:55:00 Trainer: Validation loss: 174.32
+12:55:00 EpochStopper: Stopper iterating
+12:55:00 Trainer: Training epoch 301 beginning
+12:55:03 Trainer: Training epoch 301 complete (3.201s). Train Loss: 88.64
+12:55:04 Trainer: Validation loss: 174.23
+12:55:04 EpochStopper: Stopper iterating
+12:55:04 Trainer: Training epoch 302 beginning
+12:55:07 Trainer: Training epoch 302 complete (3.297s). Train Loss: 88.54
+12:55:07 Trainer: Validation loss: 174.54
+12:55:07 EpochStopper: Stopper iterating
+12:55:07 PlateauStopper: Loss plateauing (Patience=1/20).
+12:55:07 Trainer: Saving model checkpoint.
+12:55:07 SimNN: Model saved to ./experiments/SimNN/110122123717/checkpoint_model.pt
+12:55:07 Trainer: Training epoch 303 beginning
+12:55:11 Trainer: Training epoch 303 complete (3.181s). Train Loss: 88.50
+12:55:11 Trainer: Validation loss: 174.31
+12:55:11 EpochStopper: Stopper iterating
+12:55:11 PlateauStopper: Loss plateauing (Patience=2/20).
+12:55:11 Trainer: Training epoch 304 beginning
+12:55:14 Trainer: Training epoch 304 complete (3.236s). Train Loss: 88.48
+12:55:14 Trainer: Validation loss: 174.61
+12:55:14 EpochStopper: Stopper iterating
+12:55:14 PlateauStopper: Loss plateauing (Patience=3/20).
+12:55:14 Trainer: Training epoch 305 beginning
+12:55:17 Trainer: Training epoch 305 complete (3.166s). Train Loss: 88.37
+12:55:18 Trainer: Validation loss: 174.55
+12:55:18 EpochStopper: Stopper iterating
+12:55:18 PlateauStopper: Loss plateauing (Patience=4/20).
+12:55:18 Trainer: Training epoch 306 beginning
+12:55:21 Trainer: Training epoch 306 complete (3.249s). Train Loss: 88.35
+12:55:21 Trainer: Validation loss: 174.20
+12:55:21 EpochStopper: Stopper iterating
+12:55:21 Trainer: Training epoch 307 beginning
+12:55:24 Trainer: Training epoch 307 complete (3.209s). Train Loss: 88.33
+12:55:25 Trainer: Validation loss: 174.44
+12:55:25 EpochStopper: Stopper iterating
+12:55:25 PlateauStopper: Loss plateauing (Patience=1/20).
+12:55:25 Trainer: Saving model checkpoint.
+12:55:25 SimNN: Model saved to ./experiments/SimNN/110122123717/checkpoint_model.pt
+12:55:25 Trainer: Training epoch 308 beginning
+12:55:28 Trainer: Training epoch 308 complete (3.301s). Train Loss: 88.18
+12:55:28 Trainer: Validation loss: 174.55
+12:55:28 EpochStopper: Stopper iterating
+12:55:28 PlateauStopper: Loss plateauing (Patience=2/20).
+12:55:28 Trainer: Training epoch 309 beginning
+12:55:32 Trainer: Training epoch 309 complete (3.229s). Train Loss: 88.14
+12:55:32 Trainer: Validation loss: 174.01
+12:55:32 EpochStopper: Stopper iterating
+12:55:32 Trainer: Training epoch 310 beginning
+12:55:35 Trainer: Training epoch 310 complete (3.202s). Train Loss: 88.15
+12:55:35 Trainer: Validation loss: 174.83
+12:55:35 EpochStopper: Stopper iterating
+12:55:35 PlateauStopper: Loss plateauing (Patience=1/20).
+12:55:35 Trainer: Saving model checkpoint.
+12:55:35 SimNN: Model saved to ./experiments/SimNN/110122123717/checkpoint_model.pt
+12:55:36 Trainer: Training epoch 311 beginning
+12:55:39 Trainer: Training epoch 311 complete (3.316s). Train Loss: 88.01
+12:55:39 Trainer: Validation loss: 174.73
+12:55:39 EpochStopper: Stopper iterating
+12:55:39 PlateauStopper: Loss plateauing (Patience=2/20).
+12:55:39 Trainer: Training epoch 312 beginning
+12:55:42 Trainer: Training epoch 312 complete (3.166s). Train Loss: 87.93
+12:55:42 Trainer: Validation loss: 174.35
+12:55:42 EpochStopper: Stopper iterating
+12:55:42 PlateauStopper: Loss plateauing (Patience=3/20).
+12:55:42 Trainer: Training epoch 313 beginning
+12:55:46 Trainer: Training epoch 313 complete (3.247s). Train Loss: 87.91
+12:55:46 Trainer: Validation loss: 174.76
+12:55:46 EpochStopper: Stopper iterating
+12:55:46 PlateauStopper: Loss plateauing (Patience=4/20).
+12:55:46 Trainer: Training epoch 314 beginning
+12:55:49 Trainer: Training epoch 314 complete (3.295s). Train Loss: 87.84
+12:55:49 Trainer: Validation loss: 174.92
+12:55:49 EpochStopper: Stopper iterating
+12:55:49 PlateauStopper: Loss plateauing (Patience=5/20).
+12:55:49 Trainer: Training epoch 315 beginning
+12:55:53 Trainer: Training epoch 315 complete (3.349s). Train Loss: 87.85
+12:55:53 Trainer: Validation loss: 174.82
+12:55:53 EpochStopper: Stopper iterating
+12:55:53 PlateauStopper: Loss plateauing (Patience=6/20).
+12:55:53 Trainer: Training epoch 316 beginning
+12:55:56 Trainer: Training epoch 316 complete (3.204s). Train Loss: 87.76
+12:55:56 Trainer: Validation loss: 174.33
+12:55:56 EpochStopper: Stopper iterating
+12:55:56 PlateauStopper: Loss plateauing (Patience=7/20).
+12:55:56 Trainer: Training epoch 317 beginning
+12:56:00 Trainer: Training epoch 317 complete (3.240s). Train Loss: 87.67
+12:56:00 Trainer: Validation loss: 174.57
+12:56:00 EpochStopper: Stopper iterating
+12:56:00 PlateauStopper: Loss plateauing (Patience=8/20).
+12:56:00 Trainer: Training epoch 318 beginning
+12:56:03 Trainer: Training epoch 318 complete (3.251s). Train Loss: 87.63
+12:56:03 Trainer: Validation loss: 174.76
+12:56:03 EpochStopper: Stopper iterating
+12:56:03 PlateauStopper: Loss plateauing (Patience=9/20).
+12:56:03 Trainer: Training epoch 319 beginning
+12:56:07 Trainer: Training epoch 319 complete (3.256s). Train Loss: 87.65
+12:56:07 Trainer: Validation loss: 174.56
+12:56:07 EpochStopper: Stopper iterating
+12:56:07 PlateauStopper: Loss plateauing (Patience=10/20).
+12:56:07 Trainer: Training epoch 320 beginning
+12:56:10 Trainer: Training epoch 320 complete (3.192s). Train Loss: 87.63
+12:56:10 Trainer: Validation loss: 174.79
+12:56:10 EpochStopper: Stopper iterating
+12:56:10 PlateauStopper: Loss plateauing (Patience=11/20).
+12:56:10 Trainer: Training epoch 321 beginning
+12:56:14 Trainer: Training epoch 321 complete (3.146s). Train Loss: 87.48
+12:56:14 Trainer: Validation loss: 174.84
+12:56:14 EpochStopper: Stopper iterating
+12:56:14 PlateauStopper: Loss plateauing (Patience=12/20).
+12:56:14 Trainer: Training epoch 322 beginning
+12:56:17 Trainer: Training epoch 322 complete (3.222s). Train Loss: 87.37
+12:56:17 Trainer: Validation loss: 174.65
+12:56:17 EpochStopper: Stopper iterating
+12:56:17 PlateauStopper: Loss plateauing (Patience=13/20).
+12:56:17 Trainer: Training epoch 323 beginning
+12:56:20 Trainer: Training epoch 323 complete (3.276s). Train Loss: 87.36
+12:56:21 Trainer: Validation loss: 174.51
+12:56:21 EpochStopper: Stopper iterating
+12:56:21 PlateauStopper: Loss plateauing (Patience=14/20).
+12:56:21 Trainer: Training epoch 324 beginning
+12:56:24 Trainer: Training epoch 324 complete (3.230s). Train Loss: 87.43
+12:56:24 Trainer: Validation loss: 174.65
+12:56:24 EpochStopper: Stopper iterating
+12:56:24 PlateauStopper: Loss plateauing (Patience=15/20).
+12:56:24 Trainer: Training epoch 325 beginning
+12:56:27 Trainer: Training epoch 325 complete (3.213s). Train Loss: 87.34
+12:56:28 Trainer: Validation loss: 174.50
+12:56:28 EpochStopper: Stopper iterating
+12:56:28 PlateauStopper: Loss plateauing (Patience=16/20).
+12:56:28 Trainer: Training epoch 326 beginning
+12:56:31 Trainer: Training epoch 326 complete (3.269s). Train Loss: 87.26
+12:56:31 Trainer: Validation loss: 174.59
+12:56:31 EpochStopper: Stopper iterating
+12:56:31 PlateauStopper: Loss plateauing (Patience=17/20).
+12:56:31 Trainer: Training epoch 327 beginning
+12:56:34 Trainer: Training epoch 327 complete (3.243s). Train Loss: 87.11
+12:56:35 Trainer: Validation loss: 175.10
+12:56:35 EpochStopper: Stopper iterating
+12:56:35 PlateauStopper: Loss plateauing (Patience=18/20).
+12:56:35 Trainer: Training epoch 328 beginning
+12:56:38 Trainer: Training epoch 328 complete (3.176s). Train Loss: 87.23
+12:56:38 Trainer: Validation loss: 174.46
+12:56:38 EpochStopper: Stopper iterating
+12:56:38 PlateauStopper: Loss plateauing (Patience=19/20).
+12:56:38 Trainer: Training epoch 329 beginning
+12:56:41 Trainer: Training epoch 329 complete (3.187s). Train Loss: 87.08
+12:56:41 Trainer: Validation loss: 174.18
+12:56:41 EpochStopper: Stopper iterating
+12:56:41 PlateauStopper: Loss plateauing (Patience=20/20).
+12:56:41 Trainer: Training epoch 330 beginning
+12:56:45 Trainer: Training epoch 330 complete (3.235s). Train Loss: 86.98
+12:56:45 Trainer: Validation loss: 174.66
+12:56:45 EpochStopper: Stopper iterating
+12:56:45 PlateauStopper: Loss plateauing (Patience=21/20).
+12:56:45 PlateauStopper: Stopping condition met.
+12:56:46 Trainer: Final train-set loss 86.799
+12:56:46 Trainer: Final validation-set loss 174.664
+12:56:46 Trainer: Training complete. Model trained for 331 epochs. Training time: 19.19 min
+12:56:46 SimNN: Model saved to ./experiments/SimNN/110122123717/model.pt
+12:56:46 main: Beginning evaluation of model...
+12:56:46 main: Getting predictions for train set...
+12:57:03 main: Getting predictions for validation set...
+12:57:07 main: Getting predictions for test set...
+12:57:10 main: {
+    "train": {
+        "n": 115236,
+        "range": {
+            "mean_squared_error": 2.4570136138687477,
+            "mean_absolute_error": 0.15005576155380831
+        },
+        "cost": {
+            "mean_squared_error": 24459.915347460377,
+            "mean_absolute_error": 77.11330757589995
+        },
+        "velocity": {
+            "mean_squared_error": 738.1994551892959,
+            "mean_absolute_error": 3.2166625774532775
+        },
+        "result": {
+            "accuracy_score": 0.9835815196639939
+        }
+    },
+    "val": {
+        "n": 28810,
+        "range": {
+            "mean_squared_error": 5.3036074524829235,
+            "mean_absolute_error": 0.2785783449790115
+        },
+        "cost": {
+            "mean_squared_error": 143049.16446834774,
+            "mean_absolute_error": 206.04337800120942
+        },
+        "velocity": {
+            "mean_squared_error": 1374.288167273865,
+            "mean_absolute_error": 6.7395029637019945
+        },
+        "result": {
+            "accuracy_score": 0.9759458521346754
+        }
+    },
+    "test": {
+        "n": 16006,
+        "range": {
+            "mean_squared_error": 4.810056751343349,
+            "mean_absolute_error": 0.27342351268450693
+        },
+        "cost": {
+            "mean_squared_error": 6310368.360922382,
+            "mean_absolute_error": 225.37915832222097
+        },
+        "velocity": {
+            "mean_squared_error": 1440.7040746258592,
+            "mean_absolute_error": 6.723981801947847
+        },
+        "result": {
+            "accuracy_score": 0.9753217543421216
+        }
+    },
+    "stable": {
+        "train": {
+            "n": 7014,
+            "range": {
+                "mean_squared_error": 17.453131851490408,
+                "mean_absolute_error": 1.2293949574119902
+            },
+            "cost": {
+                "mean_squared_error": 28978.359192281903,
+                "mean_absolute_error": 80.36764584669946
+            },
+            "velocity": {
+                "mean_squared_error": 10.292392872877285,
+                "mean_absolute_error": 1.3942119267580344
+            },
+            "result": {
+                "accuracy_score": 0.9987168520102652
+            },
+            "n_stable": 7014
+        },
+        "val": {
+            "n": 1733,
+            "range": {
+                "mean_squared_error": 37.48582896466152,
+                "mean_absolute_error": 2.3498802042409856
+            },
+            "cost": {
+                "mean_squared_error": 32942.93698055952,
+                "mean_absolute_error": 90.05688856931621
+            },
+            "velocity": {
+                "mean_squared_error": 22.347725434592164,
+                "mean_absolute_error": 2.3752625130258815
+            },
+            "result": {
+                "accuracy_score": 0.9249855741488748
+            },
+            "n_stable": 1733
+        },
+        "test": {
+            "n": 989,
+            "range": {
+                "mean_squared_error": 36.99375665738295,
+                "mean_absolute_error": 2.4502508146283417
+            },
+            "cost": {
+                "mean_squared_error": 37590.92399879461,
+                "mean_absolute_error": 108.37862187184024
+            },
+            "velocity": {
+                "mean_squared_error": 33.49448230835038,
+                "mean_absolute_error": 2.627528731092524
+            },
+            "result": {
+                "accuracy_score": 0.9302325581395349
+            },
+            "n_stable": 989
+        }
+    }
+}
+12:57:10 Hyperparams: Copy of hyperparams file saved to ./experiments/SimNN/110122123717/nn_hparams.json
+12:57:10 main: Experiment 110122123717 completed
+12:00:00 SimNN: Loading existing model from ./trained_models/sim_nn/110122123717/model.pt

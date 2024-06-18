@@ -1,0 +1,125 @@
+{
+    "hparams_file": "nn_hparams.json",
+    "experiment_id": "052924125806",
+    "device": "cuda",
+    "experiment_type": "kfold",
+    "model_file": "model.pt",
+    "experiment_folder": "./trained_models/sim_nn/NN_surrogate",
+    "model_class": "model.NN.MHSimNN",
+    "feature_dim": 295,
+    "model_hparams": {
+        "fc_hparams": {
+            "hidden_sizes": [
+                1024,
+                2048,
+                1024
+            ]
+        },
+        "reg_hparams": {
+            "hidden_sizes": [
+                512,
+                512,
+                256,
+                128
+            ]
+        },
+        "clf_hparams": {
+            "hidden_sizes": [
+                512,
+                128,
+                32,
+                8
+            ]
+        }
+    },
+    "dropout": 0.0,
+    "num_outcomes": 1,
+    "optimizer_class": "torch.optim.adam.Adam",
+    "optimizer_hparams": {
+        "lr": 0.001
+    },
+    "scheduler_class": "torch.optim.lr_scheduler.MultiStepLR",
+    "scheduler_hparams": {
+        "milestones": [
+            20,
+            200
+        ],
+        "gamma": 0.1
+    },
+    "dataloader_hparams": {
+        "batch_size": 256,
+        "shuffle": true
+    },
+    "dataset_class": "data.UAVDataset.UAVMatrixDataset",
+    "dataset_hparams": {
+        "datafile": "data/datafiles/design_database.csv",
+        "target_cols": [
+            "range",
+            "cost",
+            "velocity",
+            "result"
+        ],
+        "scale": true,
+        "scaler_class": "sklearn.preprocessing._data.RobustScaler",
+        "encoding_scheme": "matrix",
+        "scaler_hparams": {
+            "center_": [
+                0.0,
+                9409.916015625,
+                8.61801290512085
+            ],
+            "scale_": [
+                1.0,
+                11683.1396484375,
+                17.553123354911804
+            ],
+            "n_features_in_": 3
+        }
+    },
+    "n_folds": 4,
+    "val_proportion": 0.2,
+    "test_proportion": 0.1,
+    "save_testset": false,
+    "loss_class": "train.Loss.WeightedMAEBCELoss",
+    "loss_hparams": {
+        "pos_weight": 100.0
+    },
+    "loggers": [
+        {
+            "logger_class": "train.Logging.ConsoleLogger",
+            "logger_hparams": {
+                "mode": 1,
+                "file_path": "./experiments/SimNN/052924125806"
+            }
+        },
+        {
+            "logger_class": "train.Logging.WandbLogger",
+            "logger_hparams": {
+                "mode": 1,
+                "project_name": "uav-sim-new",
+                "file_path": "./experiments/SimNN/052924125806"
+            }
+        }
+    ],
+    "stoppers": [
+        {
+            "stopper_class": "train.TrainStopper.EpochStopper",
+            "stopper_hparams": {
+                "stop_epoch": 5000
+            }
+        },
+        {
+            "stopper_class": "train.TrainStopper.PlateauStopper",
+            "stopper_hparams": {
+                "patience": 20,
+                "start_epoch": 100
+            }
+        }
+    ],
+    "simulator_class": "inference.NNSimulator.NNSimulator",
+    "simulator_hparams": {
+        "simulator_results_file": "sim_results.csv"
+    },
+    "postprocessor_class": "data.DataPostprocessor.UAVMatrixPostprocessor",
+    "logger": "train.Logging.MultiLogger"
+}

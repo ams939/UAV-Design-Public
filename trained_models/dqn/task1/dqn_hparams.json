@@ -1,0 +1,115 @@
+{
+    "hparam_file": "hparams/dqn_hparams.json",
+    "seed": 42,
+    "experiment_folder": "./experiments/DQN/053024125616",
+    "memory": "./experiments/DQN/053024125616/replay_memory.pkl",
+    "model_file": "./experiments/DQN/053024125616/model.pth",
+    "val_memory": "",
+    "model_class": "model.DQN.UAVDQN",
+    "model_hparams": {
+        "fc_hparams": {
+            "hidden_sizes": [
+                512,
+                256,
+                128
+            ]
+        },
+        "noisy_fc_hparams": {
+            "hidden_size": 64,
+            "noisy_std": 0.1
+        }
+    },
+    "e_init": 0.2,
+    "e_end": 0.05,
+    "episode_offset": 0,
+    "encoding": "matrix",
+    "encoding_size": 295,
+    "dynamic_termination": false,
+    "experiment_id": "053024125616",
+    "T_max": 10000,
+    "max_episode_length": 25,
+    "history_length": 1,
+    "atoms": 51,
+    "V_min": -1,
+    "V_max": 1,
+    "memory_capacity": 10000,
+    "replay_frequency": 4,
+    "priority_exponent": 0.5,
+    "priority_weight": 0.4,
+    "multi_step": 3,
+    "discount": 0.99,
+    "target_update": 100,
+    "reward_clip": 1,
+    "learning_rate": 0.001,
+    "adam_eps": 0.00015,
+    "batch_size": 32,
+    "norm_clip": 10,
+    "learn_start": 500,
+    "evaluate": false,
+    "evaluation_interval": 100,
+    "evaluation_episodes": 10,
+    "evaluation_size": 1000,
+    "enable_cudnn": true,
+    "checkpoint_interval": 500,
+    "disable_bzip_memory": true,
+    "early_terminate": true,
+    "loggers": [
+        {
+            "logger_class": "train.Logging.ConsoleLogger",
+            "logger_hparams": {
+                "mode": 1,
+                "file_path": "./experiments/DQN/053024125616"
+            }
+        },
+        {
+            "logger_class": "train.Logging.FileLogger",
+            "logger_hparams": {
+                "mode": 1,
+                "file_path": "./experiments/DQN/053024125616"
+            }
+        },
+        {
+            "logger_class": "train.Logging.DatafileLogger",
+            "logger_hparams": {
+                "mode": 1,
+                "file_path": "./experiments/DQN/053024125616"
+            }
+        },
+        {
+            "logger_class": "train.Logging.WandbLogger",
+            "logger_hparams": {
+                "mode": 1,
+                "project_name": "uav-design-new",
+                "file_path": "./experiments/DQN/053024125616"
+            }
+        }
+    ],
+    "curriculum_class": "rl.Curriculum.EpisodicCurriculum",
+    "curriculum_hparams": {
+        "0a": 0,
+        "1a": 100,
+        "1b": 150,
+        "1c": 200,
+        "1d": 300
+    },
+    "agg_seqs": false,
+    "reward_class": "rl.Reward.DeltaReward",
+    "reward_hparams": {
+        "range_weight": 0.333,
+        "cost_weight": 0.333,
+        "velocity_weight": 0.333,
+        "early_terminate": true,
+        "objective": "1b"
+    },
+    "init_state": "*aMM0++++,5,3",
+    "save_mem": false,
+    "no_size": true,
+    "symmetric_actions": true,
+    "simulator_class": "inference.NNSimulator.NNSimulator",
+    "simulator_hparams": {
+        "hparams_file": "trained_models/sim_nn/NN_surrogate/nn_hparams.json"
+    },
+    "logger": "train.Logging.MultiLogger",
+    "device": "cuda",
+    "experiment_type": "run_dqn"
+}

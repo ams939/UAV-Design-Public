@@ -1,0 +1,86 @@
+{
+  "experiment_id": "",
+  "device": "gpu",
+  "experiment_type": "train",
+  "experiment_folder": "./experiments/OutcomeSimRNN",
+  "model_class": "model.RNN.OutcomeSimRNN",
+  "model_hparams": {
+    "rnn_encoder_class": "model.RNN.UAVRNNEncoder",
+    "rnn_encoder_hparams": {
+      "num_layers": 1,
+      "hidden_size": 256,
+      "bidirectional": "False"
+    },
+    "agg_seq_states": "True",
+    "fc_hparams": {
+      "fc_hidden_sizes": [256, 128, 128]
+    },
+    "use_embed": "False",
+    "embedding_size": 32
+  },
+  "dropout": 0.2,
+  "num_outcomes": 1,
+  "optimizer_class": "torch.optim.AdamW",
+  "optimizer_hparams": {
+    "lr": 0.001
+  },
+  "scheduler_class": "torch.optim.lr_scheduler.MultiStepLR",
+  "scheduler_hparams": {
+    "milestones":  [20, 200],
+    "gamma": 0.1
+  },
+  "dataloader_hparams": {
+    "batch_size": 64,
+    "shuffle": "True"
+  },
+  "dataset_class": "data.UAVDataset.UAVRegressionDataset",
+  "dataset_hparams": {
+    "datafile": "data/datafiles/preprocessed/balanced_filtered_aggregated_uav_designs.csv",
+    "target_cols": ["result"],
+    "one_hot": "True"
+  },
+  "val_proportion": 0.25,
+  "loss_class": "train.Loss.CustomBCELoss",
+  "loss_hparams": {
+  },
+  "loggers": [
+    {
+      "logger_class": "train.Logging.ConsoleLogger",
+      "logger_hparams": {
+        "mode": 1
+      }
+    },
+    {
+      "logger_class": "train.Logging.DatafileLogger",
+      "logger_hparams": {
+        "mode": 1
+      }
+    },
+      {
+      "logger_class": "train.Logging.FileLogger",
+      "logger_hparams": {
+        "mode": 1
+      }
+    }
+  ],
+  "stoppers": [
+    {
+      "stopper_class": "train.TrainStopper.EpochStopper",
+      "stopper_hparams": {
+        "stop_epoch": 1200
+      }
+    },
+    {
+      "stopper_class": "train.TrainStopper.PlateauStopper",
+      "stopper_hparams": {
+        "patience": 50
+      }
+    }
+  ],
+  "simulator_class": "inference.UAVSimulator.NNSimulator",
+  "simulator_hparams": {
+    "simulator_results_file": "sim_results.csv"
+  },
+  "postprocessor_class": "data.DataPostprocessor.UAVDataPostprocessor",
+  "save_preds": "True"
+}

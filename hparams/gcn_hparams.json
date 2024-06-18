@@ -1,0 +1,77 @@
+{
+  "hparams_file": "gcn_hparams.json",
+  "experiment_id": "",
+  "use_wandb": false,
+  "device": "gpu",
+  "experiment_type": "train",
+  "experiment_folder": "./experiments/GCN",
+  "model_class": "model.GCN.SimGCN",
+  "batch_size": 32,
+  "feature_dim": 2,
+  "model_hparams": {
+    "fc_hparams": {
+      "hidden_sizes": [128, 256, 128]
+    },
+    "reg_hparams": {
+      "hidden_sizes": [256, 128]
+    },
+    "clf_hparams": {
+      "hidden_sizes": [128, 32, 16]
+    }
+  },
+  "val_proportion": 0.2,
+  "dropout": 0.0,
+  "num_outcomes": 1,
+  "optimizer_class": "torch.optim.Adam",
+  "optimizer_hparams": {
+    "lr": 0.0001
+  },
+  "dataset_class": "data.UAVDataset.UAVGraphDataset",
+  "dataset_hparams": {
+    "cache_path": "data/datafiles/preprocessed/UAVGraphDataset.jb",
+    "datafile": "data/datafiles/preprocessed/design_database_test.csv",
+    "target_cols": [
+      "range",
+      "cost",
+      "velocity",
+      "result"
+    ],
+    "scale": true,
+    "scaler_class": "sklearn.preprocessing.RobustScaler",
+    "encoding_scheme": "graph",
+    "node_encoding": "vanilla"
+  },
+  "dataloader_hparams": {
+    "batch_size": 32,
+    "shuffle": "True"
+  },
+  "loss_class": "train.Loss.WeightedMAEBCELoss",
+  "loss_hparams": {
+    "reg_weight": 0.1,
+    "cls_weight": 0.9
+  },
+  "loggers": [
+    {
+      "logger_class": "train.Logging.ConsoleLogger",
+      "logger_hparams": {
+        "mode": 1
+      }
+    },
+    {
+      "logger_class": "train.Logging.WandbLogger",
+      "logger_hparams": {
+        "mode": 1,
+        "project_name": "uav-design"
+      }
+    }
+  ],
+  "stoppers": [
+    {
+      "stopper_class": "train.TrainStopper.EpochStopper",
+      "stopper_hparams": {
+        "stop_epoch": 10
+      }
+    }
+    ],
+  "postprocessor_class": "data.DataPostprocessor.UAVGraphPostprocessor"
+}

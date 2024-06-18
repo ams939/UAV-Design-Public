@@ -1,0 +1,662 @@
+"""
+Assortment of one-off research code snippets for manipulating data from the raw format to something usable
+
+Author: Aleksanteri Sladek
+15.6.2022
+
+"""
+
+
+DATA_PATH = 'data/datafiles/'
+RAW_DATA_PATH = DATA_PATH + 'raw/'
+DATA_CSV = ['designerAI.csv', 'dronedb.csv', 'dronedb_log.csv', 'uavdb.csv', 'ai_designer_sequences_updated.csv']
+DATA_COLS = ['config', 'range', 'cost', 'velocity']
+PP_PATH = DATA_PATH + 'preprocessed/'
+PREPROCESSED = PP_PATH + '/preprocessed_unique.csv'
+
+PP_BATCH_SIZE = 64
+
+
+def validate_viability(pp_data_file, viable_only=True):
+    """
+     Function for making a data file of all viable drone designs, i.e designs that pass the simulation
+     test.
+    """
+
+    # TODO: Load all the designs
+    # TODO: Call the simulation interface with each design in pp_data_file
+    # TODO: Accept all designs for which simulation terminates AND/OR some threshold for return values satisfied.
+
+    pp_data = pd.read_csv(pp_data_file)
+
+    designs = pp_data[UAV_STR_COL].values.tolist()
+    n_designs = len(designs)
+    n_batches = n_designs // PP_BATCH_SIZE
+
+    sim_stats = {}
+    viable_designs = []
+    for batch_idx in tqdm(range(n_batches+1)):
+        # Last batch not full special case
+        if batch_idx == n_batches:
+            uav_batch = designs[(batch_idx * PP_BATCH_SIZE):]
+        else:
+            uav_batch = designs[(batch_idx * PP_BATCH_SIZE): (batch_idx + 1)*PP_BATCH_SIZE]
+
+        sim_results = uav_batch_simulate(uav_batch)
+
+        if viable_only:
+            # Save only the successful designs
+            for sim_result in sim_results:
+                outcome = sim_result["result"]
+
+                try:
+                    sim_stats[outcome] += 1
+                except KeyError:
+                    sim_stats[outcome] = 1
+
+                if outcome == "Success":
+                    viable_designs.append(sim_result)
+        else:
+            viable_designs += sim_results
+
+    src_file = os.path.basename(pp_data_file)
+    src_path = os.path.dirname(pp_data_file)
+    pd.DataFrame(viable_designs).to_csv(f"{src_path}/viable_{src_file}")
+
+    for key, value in sim_stats.items():
+        print(f"'{key}' simulation outcome had {value} occurrences")
+
+
+def filter_unique(data, save=True, out_file=""):
+    from data.Constants import UAV_CONFIG_COL
+    import numpy as np
+    
+    # Only compare structure string and payload
+    uav_designs = data[UAV_CONFIG_COL].apply(lambda x: ",".join(x.split(",")[:2]))
+
+    unique_designs, indices = np.unique(uav_designs.values, return_index=True)
+
+    print(f"Found {len(unique_designs)} unique designs from {len(uav_designs)} designs")
+
+    unique_data = data.iloc[indices].sort_index()
+    
+    if save:
+        assert os.path.isdir(os.path.dirname(out_file)), "Please provide valid out_file arg"
+        print(f"Saving unique designs {out_file}")
+        unique_data.to_csv(out_file, index=False)
+    else:
+        return unique_data
+
+
+def validate_grammar(pp_data_file, out_path=None, save_valid=True):
+    """
+    Function for making a data file of all grammatically valid drone designs
+
+    """
+
+    valid_idx = []
+    data = pd.read_csv(pp_data_file)
+    uav_designs = data["config"].values
+    parser = UAVGrammar()
+
+    print(f"Loading data from {pp_data_file}")
+    pp_data_filename = os.path.basename(pp_data_file)
+
+    if out_path is None:
+        out_path = os.path.dirname(pp_data_file)
+
+    error_log = open(out_path + '/valid_drone_pplog.txt', 'w')
+
+    invalid_designs = []
+    for idx, uav_design in enumerate(uav_designs):
+        try:
+            uav_design = uav_design.replace('"', '')
+        except AttributeError:
+            continue
+
+        # Get the three first comma separated elements
+        if len(uav_design.split(",")) > 3:
+            error_log.write(f"Warning: Found too many elems in UAV string {uav_design};\n")
+            uav_design = ",".join(uav_design.split(",")[:3])
+            uav_designs[idx] = uav_design
+
+        valid, errors = parser.validate(uav_design)
+
+        if not valid:
+            invalid_designs.append(errors[0])
+            print(';'.join(errors))
+            error_log.write(';'.join(errors) + '\n')
+            continue
+
+        valid_idx.append(idx)
+
+    valid_data = data.iloc[valid_idx].reset_index()
+    
+    print(f"{len(valid_data)} valid and {len(invalid_designs)} invalid designs found out of {len(data)} designs")
+    error_log.write(f"{len(valid_data)} valid and {len(invalid_designs)} invalid designs found out of {len(data)} designs")
+
+    if save_valid:
+        valid_path = f'{out_path}/valid_{pp_data_filename}'
+        print(f"Saving designs to {valid_path}")
+        valid_data.to_csv(valid_path, index=False)
+        return
+
+    error_log.close()
+
+    return valid_data
+
+
+def filter_novel(data, database_file: str, save=True, out_file: str=None):
+    """
+    Args:
+        data - data with valid drone designs of unknown novelty, usually generated by a model
+        database_file - file path to database of known drone designs, repository of known novel drone designs
+
+    Comparison is performed on the structure component of the design strings, i.e the component and connection
+    specifiers. Payload and controller idx will be ignored. In practice, comparison is done s.t every design generated
+    by the model is compared to every design in the training set that is of the same length.
+
+    Returns proportion of samples that are novel, and saves the novel designs to file if specified.
+
+    TODO: Ideas for improvements / concerns on current method limitations
+        Address limitations arising from naive comparison of full designs. What about comparing sub-sequences?
+        Quantifying similarity for UAV designs in a more fine grained way? How to go about doing this?
+            Cosine similarity between index vectors?
+            Num. characters in same positions?
+            String edit distance?
+            Levensthein distance? https://en.wikipedia.org/wiki/Levenshtein_distance
+
+    """
+    
+    if save:
+        assert os.path.isdir(os.path.dirname(out_file)), "Please provide valid output file"
+    
+    database_data = pd.read_csv(database_file)
+    print(f"Comparing {len(data)} candidate new designs to {len(database_data)} known existing designs.")
+
+    n_duplicates = 0
+    novel_designs = []
+    novel_design_idxs = np.zeros(len(data)).astype(np.bool)
+    
+    model_designs = [",".join(design_str.split(",")[0:2]) for design_str in data[UAV_CONFIG_COL].values]
+    db_designs = [",".join(design_str.split(",")[0:2]) for design_str in database_data[UAV_CONFIG_COL].values]
+    
+    for m_idx in tqdm(range(len(data))):
+        model_design = model_designs[m_idx]
+        is_novel = True
+
+        for db_idx in range(len(database_data)):
+
+            db_design = db_designs[db_idx]
+            if model_design == db_design:
+                is_novel = False
+                break
+
+        if is_novel:
+            # Check for duplicates (compare the structure string and payload)
+            novel_designs = list(data[UAV_CONFIG_COL].values[novel_design_idxs])
+
+            if model_design in novel_designs:
+                n_duplicates += 1
+                print(f"Duplicate novel design encountered {model_design}")
+                continue
+            
+            novel_design_idxs[m_idx] = True
+    
+    novel_data = data.loc[novel_design_idxs]
+    print(f"Compared {len(model_designs)} designs from the model to {len(db_designs)} designs in the train"
+          f"set. Found {len(novel_data)} novel designs and {n_duplicates} duplicates of these novel designs. "
+          f"{100*(len(novel_designs)/len(data)):.2f}% of generated designs are novel)")
+    
+    if save:
+        assert os.path.isdir(os.path.dirname(out_file)), "Please provide valid output file"
+        novel_data.to_csv(out_file, index=False)
+    else:
+        return novel_data
+
+
+def simulate_designs(design_file_path):
+    out_dir = os.path.dirname(design_file_path)
+    out_file = f"{out_dir}/simresults_{os.path.basename(design_file_path)}"
+
+    print(f"Loading data from {design_file_path}")
+    uav_strings = pd.read_csv(design_file_path)["config"].values.tolist()
+    sim = HyFormSimulator()
+    print(f"Simulating {len(uav_strings)} designs...")
+    
+    n_designs = len(uav_strings)
+    max_batch = 1000
+    if n_designs > max_batch:
+        n_batches = n_designs // max_batch
+        
+        if n_designs % n_batches != 0:
+            n_batches += 1
+
+        f = open(out_file, "a")
+        f.write(",".join(SIM_OUT_COLS) + "\n")
+        print(f"Processing results to {out_file}")
+        
+        for batch_idx in range(n_batches):
+            batch_s = batch_idx*max_batch
+            batch_e = min((batch_idx+1)*max_batch, n_designs)
+            print(f"Simulating batch {batch_idx}/{n_batches+1} designs {batch_s}-{batch_e}: ")
+            uav_strings_batch = uav_strings[batch_s: batch_e]
+            batch_results = sim.simulate_batch(uav_strings_batch, preserve_order=False)
+
+            for sim_result in tqdm(batch_results, total=len(uav_strings_batch)):
+                # Add double quotes to config string as it contains commas
+                sim_result[UAV_CONFIG_COL] = f'"{sim_result[UAV_CONFIG_COL]}"'
+    
+                f.write(",".join([str(sim_result[RESULT_COL]) for RESULT_COL in SIM_OUT_COLS]) + "\n")
+
+        f.close()
+            
+    else:
+        sim_results = sim.simulate_batch(uav_strings, preserve_order=False)
+
+        f = open(out_file, "w")
+        f.write(",".join(SIM_OUT_COLS) + "\n")
+        print(f"Processing results to {out_file}")
+        for sim_result in tqdm(sim_results, total=len(uav_strings)):
+    
+            # Add double quotes to config string as it contains commas
+            sim_result[UAV_CONFIG_COL] = f'"{sim_result[UAV_CONFIG_COL]}"'
+    
+            f.write(",".join([str(sim_result[RESULT_COL]) for RESULT_COL in SIM_OUT_COLS]) + "\n")
+    
+        f.close()
+
+
+def aggregate(raw_data_file, pp_data_file):
+    if not os.path.exists(pp_data_file):
+        with open(pp_data_file, 'w') as f:
+            f.write(",".join(DATA_COLS) + "\n")
+
+    pp_data = pd.read_csv(pp_data_file)
+
+    n_rows = len(pp_data)
+    designs = pp_data['config'].values.tolist()
+
+    print(f"Reading in {n_rows} rows of pre-processed data")
+
+    data = pd.read_csv(raw_data_file)
+    print(f"Reading in {len(data)} rows of raw data from {raw_data_file}.")
+
+    duplicates = 0
+    new_rows = []
+    for idx in range(len(data)):
+        row = data.iloc[idx]
+
+        design = row['config']
+
+        if design in designs:
+            duplicates += 1
+            continue
+        else:
+            designs.append(design)
+            new_rows.append(f'"{design}",{row["range"]},{row["cost"]},{row["velocity"]}\n')
+
+    print(f"Writing {len(new_rows)} rows of new pre-processed data ({duplicates} duplicate designs ignored)")
+    with open(pp_data_file, 'a') as f:
+        f.writelines(new_rows)
+
+
+def data_summary(data):
+    print("Data columns: ", data.columns)
+    print(f"Data rows count {len(data)}")
+
+    result_categories = np.unique(data['result'])
+    print("Result categories:", result_categories)
+    successful_designs = data[data['result'].values == 'Success']
+    print(f"No. of successful designs {len(successful_designs)}")
+    print(f"No. of unique successful designs {len(np.unique((successful_designs['config']).values))}")
+
+
+def vocab_constructor():
+    """ Function for creating the UAV grammar character mapping to indices, and vice versa """
+    vocab = set([
+                    COMP_PREFIX, CONN_PREFIX, INCREMENT_SYMBOL, DECREMENT_SYMBOL, ELEM_SEP
+                ] + X_LETTER_COORDS + COMPONENT_IDS + INTEGERS)
+
+    vocab = list(vocab)
+    vocab.sort()
+
+    # Add NN's special tokens to the vocab
+    vocab.insert(0, EOS_TOKEN)
+    vocab.insert(0, SOS_TOKEN)
+    vocab.insert(0, PAD_TOKEN)
+
+    ch_to_idx = {}
+    idx_to_ch = {}
+    for idx, c in enumerate(vocab):
+        ch_to_idx[str(c)] = idx
+        idx_to_ch[idx] = str(c)
+
+    with open(DATA_PATH + 'token_to_idx.json', 'w') as f:
+        json.dump(ch_to_idx, f)
+
+    with open(DATA_PATH + 'idx_to_token.json', 'w') as f:
+        json.dump(idx_to_ch, f)
+
+
+def aggregate_preprocessed(old_file: str, new_file: str):
+
+    data_dir = os.path.dirname(new_file)
+    data_name = os.path.basename(old_file)
+
+    existing_data = pd.read_csv(old_file)
+    print(f"Loading {len(existing_data)} already known drone designs.")
+
+    new_data = pd.read_csv(new_file)
+    print(f"Loading {len(new_data)} new samples")
+
+    for col in existing_data.columns:
+        assert col in new_data.columns, f"Can't find {col} in the given datafile {new_file}, aborting..."
+
+    agg_data = pd.concat([existing_data, new_data])
+
+    agg_data_struct = agg_data[UAV_CONFIG_COL].apply(lambda x: ",".join(x.split(",")[:2]))
+
+    _, indices = np.unique(agg_data_struct.values, return_index=True)
+
+    agg_data_unique = agg_data.iloc[indices].sort_index()
+    
+    try:
+        uniques, unique_counts = np.unique(agg_data_unique[UAV_CONFIG_COL].values, return_counts=True)
+        assert np.amax(unique_counts) == 1, "Found duplicates! Fix yo code"
+    except AssertionError as e:
+        print(f"Duplicates: {uniques[np.argmax(unique_counts)]}")
+        raise AssertionError(e)
+
+    print(f"Removed {len(agg_data) - len(agg_data_unique)} duplicates, saving new set of {len(agg_data_unique)} designs.")
+
+    agg_data_unique.to_csv(f"{data_dir}/updated_{data_name}", index=False)
+
+
+def filter_metrics(data, save=True, out_file=None):
+    orig_len = len(data)
+
+    # Remove rows with 'Error' or 'Timeout' outcomes
+    for outcome in ['Error', 'Timeout']:
+        data = data[data[SIM_RESULT_COL] != outcome]
+
+    print(f"Removed {orig_len - len(data)} rows. (Error, Timeout outcomes)")
+
+    data.loc[data[RANGE_COL] < 0, 'range'] = 0.0
+
+    print("Truncated negative 'range' col values to zero.")
+
+    if save:
+        assert os.path.isdir(os.path.dirname(out_file)), "Provide valid out_file"
+        data.to_csv(out_file, index=False)
+        print(f"Saved {len(data)} designs to {out_file}")
+    else:
+        return data
+
+
+def augment_payload(datafile):
+    from rl.DesignAction import collect_payload_actions
+    from rl.DesignState import UAVDesign
+
+    data = pd.read_csv(datafile)
+    print(f"Loaded {len(data)} records from {datafile}")
+    data_dir = os.path.dirname(datafile)
+    data_fname = os.path.basename(datafile)
+
+    new_strings = []
+    for idx in range(len(data)):
+        uav_str = data['config'].values[idx]
+        old_payload = uav_str.split(",")[1]
+        uav = UAVDesign(uav_str)
+        new_strings.append(uav.to_string())
+
+        payload_actions = collect_payload_actions(uav, fixed=True, payloads=np.arange(0, 101, 5).astype(int).tolist())
+
+        for new_uav in payload_actions:
+            new_uav_str = new_uav.to_string()
+            new_payload = new_uav_str.split(",")[1]
+
+            if old_payload == new_payload:
+                continue
+            else:
+                new_strings.append(new_uav_str)
+
+    new_data_file = f"{data_dir}/augmented_{data_fname}"
+    print(f"Saving {len(new_strings)} augmented designs to")
+    new_data = pd.DataFrame({"config": new_strings})
+    new_data.to_csv(new_data_file, index=False)
+
+
+def make_balanced_dataset(data_file: str):
+    file_name = os.path.basename(data_file)
+    file_dir = os.path.dirname(data_file)
+
+    data = pd.read_csv(data_file)
+
+    success_set = data[data[SIM_RESULT_COL] == 'Success']
+
+    n_successful = len(success_set)
+    failure_set = data[data[SIM_RESULT_COL] != 'Success'].sample(n_successful)
+
+    new_data = pd.concat([success_set, failure_set])
+
+    shuffled_indices = np.random.permutation(len(new_data))
+
+    new_data = new_data.iloc[shuffled_indices]
+
+    new_data_file = f"{file_dir}/balanced_{file_name}"
+    new_data.to_csv(new_data_file, index=False)
+
+    print(f"New dataset with {len(new_data[new_data[SIM_RESULT_COL] == 'Success'])} successful outcome rows and "
+          f"{len(new_data[new_data[SIM_RESULT_COL] != 'Success'])} failure outcome rows (Total: {len(new_data)}).")
+    
+    
+def csv_agg(files):
+    data = None
+    for file in files:
+        if data is None:
+            data = pd.read_csv(file)
+        else:
+            new_data = pd.read_csv(file)
+            data = data.append(new_data, ignore_index=True)
+    
+    data = data["config"].values
+    for row in range(len(data)):
+        new_str = list(data[row])
+        new_str.insert(-3, '2')
+        data[row] = "".join(new_str)
+    
+    data = pd.DataFrame({"config": data})
+    data["config"].to_csv(f"{os.path.dirname(file)}/agg_csvs.csv", index=False)
+
+
+def dqn_log_to_csv(fname, save=True):
+    with open(fname) as f:
+        try:
+            data = json.loads(f.read())
+        except json.JSONDecodeError:
+            try:
+                data = json.loads("[" + f.read() + "]")
+            except json.JSONDecodeError:
+                sys.exit(-1)
+    
+    data = pd.DataFrame(data)
+    
+    if save:
+        data.to_csv(f"{os.path.dirname(fname)}/datafile_log.csv", index=False)
+    else:
+        return data
+
+
+def get_dqn_log_designs(data, stable_only=False, metrics=True, save=True, out_file=None):
+    
+    if stable_only:
+        data = data.loc[data[SIM_RESULT_COL] == SIM_SUCCESS]
+        data = data.reset_index()
+    
+    if not metrics:
+        data = data[UAV_CONFIG_COL].to_frame()
+    else:
+        data = data[[UAV_CONFIG_COL] + SIM_METRICS + [SIM_RESULT_COL]]
+    
+    if save:
+        assert os.path.isdir(os.path.dirname(out_file)), "Provide valid out_file"
+        print(f"Saving {len(data)} rows of data to {out_file} (metrics={metrics}, stable_only={stable_only})")
+        data.to_csv(out_file, index=False)
+    else:
+        return data
+    
+    
+def filter_objective_success(data, obj_thresholds):
+    import numpy as np
+    th_metrics = list(obj_thresholds.keys())
+    data = data.loc[data["result"] == "Success"]
+    n_designs = len(data)
+    
+    if "range" in th_metrics:
+        range_success = data["range"].values >= obj_thresholds["range"]["lower"]
+    else:
+        range_success = np.ones(n_designs)
+        
+    if "cost" in th_metrics:
+        cost_success = data["cost"].values <= obj_thresholds["cost"]["upper"]
+    else:
+        cost_success = np.ones(n_designs)
+    
+    if "velocity" in th_metrics:
+        velocity_success = data["velocity"].values >= obj_thresholds["velocity"]["lower"]
+    else:
+        velocity_success = np.ones(n_designs)
+        
+    if "payload" in th_metrics:
+        payload_success = np.zeros(n_designs)
+        
+        for i in range(n_designs):
+            uav_str = data["config"].values[i]
+            
+            try:
+                payload = int(uav_str.split(",")[-2])
+            except Exception:
+                print(f"Invalid drone string {uav_str}")
+                payload = 0
+            payload_success[i] = payload
+
+        payload_success = payload_success >= obj_thresholds["payload"]["lower"]
+    else:
+        payload_success = np.ones(n_designs)
+    
+    successful_drones = (velocity_success * range_success * cost_success * payload_success).astype(np.bool)
+    
+    print(f"{int(np.sum(successful_drones))}/{n_designs} meeting objective conditions found.")
+    
+    return data.loc[successful_drones]
+
+
+def dqn_pp_pipeline(exp_id: str, current_dataset: str, stable_only=False, metrics=False):
+    
+    data_file_csv = f"experiments/DQN/{exp_id}/datafile_log.csv"
+    data_file_json = f"experiments/DQN/{exp_id}/datafile_log.json"
+    if os.path.exists(data_file_json):
+        dqn_log_to_csv(data_file_json)
+        
+    data = pd.read_csv(data_file_csv)
+    print(f"Read {len(data)} designs from {data_file_csv}")
+    
+    data = get_dqn_log_designs(data, stable_only=stable_only, save=False, metrics=metrics)
+    data = filter_unique(data, save=False)
+    data = filter_novel(data, current_dataset, save=False)
+    
+    if metrics:
+        data = filter_metrics(data, save=False)
+    
+    return data
+
+
+if __name__ == "__main__":
+    import pandas as pd
+    import os
+    import sys
+    from inference.UAVSimulator import HyFormSimulator
+    from data.Constants import *
+    from tqdm import tqdm
+    
+    datafile = "data/datafiles/generated/filtered_unique_dqn_raw_designs_april.csv"
+    # exp_id = "103022012040"
+    # datafile = f"data/datafiles/generated/filtered_simresults_{exp_id}_dqn_designs.csv"
+    # datafile = f"data/datafiles/generated/novel_unique_agg_csvs.csv"
+    # datafile = f"experiments/DQN/{exp_id}/stable.csv"
+    # simulate_designs(datafile)
+
+    # !!! Importing these BEFORE calling simulate designs breaks the parallel processing for some reason...
+    
+    import json
+    import numpy as np
+    
+    from tools.testbed_interface import uav_batch_simulate
+    from train.Hyperparams import Hyperparams, DummyHyperparams
+    from data.UAVDataset import UAVStringDataset
+    from data.datamodel.Grammar import UAVGrammar
+
+    # dqn_log_to_csv(f"experiments/DQN/{exp_id}/datafile_log.json")
+    data = pd.read_csv(datafile)
+    # data = filter_objective_success(data, {"range": {"lower": 20}, "velocity": {"lower": 5}})
+    #data = get_dqn_log_designs(data, stable_only=True, metrics=False, save=False)
+    # data = filter_unique(data, save=True, out_file=f"{os.path.dirname(datafile)}/unique_{os.path.basename(datafile)}")
+    # data.to_csv(f"experiments/DQN/{exp_id}/successful_stable.csv", index=False)
+    # data = dqn_pp_pipeline(exp_id, "data/datafiles/preprocessed/design_database.csv", metrics=True)
+    # data.to_csv(f"experiments/DQN/{exp_id}/{exp_id}_filtered_novel_dqn_designs.csv", index=False)
+    # data = pd.read_csv(f"experiments/DQN/{exp_id}/101122144438_dqn_designs.csv")
+    current_dataset_file = "data/datafiles/preprocessed/design_database.csv"
+    # data = filter_unique(data, save=False)
+    data = filter_metrics(data, save=False)
+    data = filter_novel(data, current_dataset_file, save=True, out_file="data/datafiles/preprocessed/design_database_april.csv")
+    # data = pd.read_csv("experiments/DQN/101122144438/101122144438_novel_dqn_designs.csv")
+    
+    
+    # new_file = f"experiments/DQN/{exp_id}/filtered_novel_dqn_designs.csv"
+    # data.to_csv(new_file, index=False)
+    # current_dataset_file = "data/datafiles/preprocessed/design_database.csv"
+    # new_file = "experiments/DQN/101122144438/101122144438_filtered_novel_dqn_designs.csv"
+    # aggregate_preprocessed(current_dataset_file, new_file)
+    
+    # dqn_log_to_csv(datafile)
+    # validate_grammar(f"data/datafiles/generated/{exp_id}_dqn_designs.csv")
+    # filter_unique(f"experiments/DQN/{exp_id}/dqn_designs.csv")
+    # augment_payload(datafile)
+    
+    #exp_ids = ["092422174852", "092022143610", "091322120118", "090622102555"]
+    #csv_agg([f"data/datafiles/generated/{exp_id}_dqn_designs.csv" for exp_id in exp_ids])
+    
+    # validate_novelty(f"data/datafiles/generated/unique_agg_csvs.csv",
+    #                 "data/datafiles/generated/filtered_aggregated_uav_designs.csv")
+
+    # filter_metrics(datafile)
+
+    # sample_file = f"data/datafiles/generated/{exp_id}_sample3.csv"
+    # dataset_file = "data/datafiles/generated/filtered_aggregated_uav_designs.csv"
+
+    # make_balanced_dataset("data/datafiles/preprocessed/aggregated_uav_designs_filtered.csv")
+
+    # aggregate_preprocessed(dataset_file, datafile)
+
+    # validate_viability(f"./data/datafiles/preprocessed/preprocessed_validunique.csv", viable_only=False)
+
+    # vocab_constructor()
+    # validate_grammar("./data/datafiles/preprocessed/preprocessed_allunique.csv", save_valid=True)
+
+    # data_file = "data/datafiles/raw/ai_designer_sequences_updated.txt"
+
+    # data = pd.read_csv(data_file, sep='\t')
+    # data_summary(data)
+
+    # for df in DATA_CSV:
+    #    aggregate(DATA_PATH + df, PREPROCESSED)
+
+    # new_data = data[DATA_COLS]
+
+    # with open("data/datafiles/raw/ai_designer_sequences_updated.csv", "w") as f:
+    #    for i in range(len(new_data)):
+    #        f.write(f'"{new_data.iloc[i]["config"]}",{new_data.iloc[i]["range"]},{new_data.iloc[i]["cost"]},{new_data.iloc[i]["velocity"]}\n')
+    # hparams_path = f"train/simrnn_hparams.json"
+
+    # filter_unique("data/datafiles/preprocessed/preprocessed_allunique.csv")

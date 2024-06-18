@@ -1,0 +1,30 @@
+{
+  "device": "gpu",
+  "model_class": "model.RNN.PolicyRNN",
+  "model_hparams": {
+    "rnn_encoder_hparams": {
+      "num_layers": 1,
+      "hidden_size": 256,
+      "batch_first": "True",
+      "bidirectional": "True"
+    },
+    "in_fc_hparams": {
+      "hidden_sizes": [1024, 512, 256]
+    },
+    "hidden_fc_hparams": {
+      "hidden_sizes": [128, 64, 16]
+    },
+    "agg_seq_states": "True"
+  },
+  "dropout": 0.0,
+  "out_dim": 1,
+  "feature_dim": 295,
+  "loggers": [
+    {
+      "logger_class": "train.Logging.ConsoleLogger",
+      "logger_hparams": {
+        "mode": 1
+      }
+    }
+  ]
+}
